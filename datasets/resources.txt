@@ -1,0 +1,3 @@
+ Center for Machine Learning and Intelligent Systems - Univercity of  California, Irving: http://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition
+Kaggle - preictal signals :  https://www.kaggle.com/c/seizure-prediction/data
+Bern-Barcelona EEG database:  http://ntsa.upf.edu/downloads/andrzejak-rg-schindler-k-rummel-c-2012-nonrandomness-nonlinear-dependence-and
