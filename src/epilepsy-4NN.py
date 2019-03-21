@@ -1,21 +1,7 @@
 import tensorflow as tf
 import numpy as np
-from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
-import os
-
-size = 1000
-
-def read_dataset():
-    path = os.path.dirname(os.path.abspath(__file__))
-    dataset = np.loadtxt(path + "/../dataset/epilepsy-11k.csv", delimiter=",", skiprows=1, usecols=range(1,180))[0:size]
-    X = dataset[:,0:178]
-    Y = dataset[:,178].reshape(X.__len__(), 1)
-    Y[Y > 1] = 0
-    max = np.matrix(X).max()
-    ### Improving gradient descent through feature scaling
-    X = 2 * X / float(max) - 1
-    return shuffle(X, Y, random_state=1)
+from nn_utils import read_dataset
 
 def predict(X1):
     X1.resize((samples, neurons), refcheck=False)
@@ -27,7 +13,7 @@ def accuracy(predictions, labels):
             / predictions.shape[0])
 
 
-X,Y = read_dataset()
+X,Y = read_dataset(180, 1000)
 train_x, test_x, train_y, test_y = train_test_split(X,Y,test_size=0.1, random_state=1)
 
 LR = 0.001
@@ -60,7 +46,8 @@ with tf.Session() as sess:
         l2_, opt, lo = sess.run([l2,optimizer, loss], feed_dict={x: train_x, y: train_y})
         if epoch % (epochs*.1) == 0:
             error = np.mean(np.abs( train_y - l2_ ))
-            accuracy = 1 - np.sum(np.abs( (predict(test_x) - test_y))/samples)
+            test_error = np.abs((predict(test_x) - test_y))
+            accuracy = 1 - np.mean(test_error)
             print 'Epoch', epoch," error:" , error , " accuracy of test-set:", accuracy
 
     epi_0 = np.array([[15,13,11,0,-6,-7,-5,-6,-12,-19,-25,-21,-7,6,19,24,27,28,32,35,36,40,45,48,51,50,50,48,47,46,46,44,45,42,34,22,24,26,28,27,22,17,13,16,14,14,4,-3,-10,-12,-9,-8,-9,-11,-11,-15,-17,-16,-17,-6,1,6,4,3,7,10,12,10,9,4,9,11,12,14,8,3,-1,-4,-14,-22,-29,-40,-40,-47,-48,-57,-69,-79,-79,-89,-96,-107,-115,-122,-121,-117,-103,-92,-80,-67,-59,-51,-44,-46,-45,-32,-35,-32,-31,-25,-23,-23,-25,-25,-27,-28,-27,-29,-24,-22,-16,-10,2,10,3,-3,-1,26,46,65,71,71,73,68,62,55,56,50,43,30,19,3,-3,-8,-10,-11,-15,-10,-1,7,17,24,25,30,33,31,27,23,16,11,0,-10,-23,-29,-29,-33,-36,-46,-50,-57,-51,-36,-29,-20,-12,-3,2,12]])

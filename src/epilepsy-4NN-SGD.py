@@ -9,7 +9,7 @@ batch_size = 500
 
 def read_dataset():
     path = os.path.dirname(os.path.abspath(__file__))
-    dataset = np.loadtxt(path + "/../dataset/epilepsy-11k.csv", delimiter=",", skiprows=1, usecols=range(1,180))[0:num_examples]
+    dataset = np.loadtxt(path + "/../datasets/data-1k.csv", delimiter=",", skiprows=1, usecols=range(1,180))[0:num_examples]
     X = dataset[:,0:178]
     Y = dataset[:,178].reshape(X.__len__(), 1)
     Y[Y > 1] = 0
