@@ -49,6 +49,7 @@
 %\titlerunning{Short form of title}        % if too long for running head
 
 \author{Gabriel A. Maggiotti (gmaggiotti@gmail.com)
+\institute{Jampp.com}
 }
 
 %\authorrunning{Short form of author list} % if too long for running head
@@ -150,16 +151,22 @@ Rabbi, 2012 $[$24$]$  Used fuzzy algorithms for feature extraction for classific
 
 Dataset used was taken from The University of California Irvine [1].  UCI contains a Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds.   Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  Labels {2,3,4,5} has been changed to {0} as measurements of individuals with no epilepsy seizure.  Those with label {1} represent individuals with epilepsy seizure.   
 \paragraph{}
-Also, dataset has been normalized between [-1, 1] in order to avoid saturation on the activation function and  improving gradient descent through feature scaling.  Feature scaling method called standardization, gives to data the property of a standard normal distribution, which helps gradient descent learning to converge more quickly.
 
+To avoid saturation on the activation function and to make the gradient descents converge faster, the features were normalized to a range of values between -1 and 1 so that all features have a similar scale. The method used was standardization, which makes every feature have a zero mean value and unit variance. It is calculated for each feature as follows:
+
+
+\begin{equation} 
+x'=\frac{x-\hat{x}}{\sigma}
+\end{equation}
 
 \begin{equation}
-\mu (X_{i})= 0   
+\mu (x_{i})= 0   
 \end{equation}
 
 \begin{equation} 
-\sigma (X_{i}) = \sigma(X_{j})
+\sigma (x_{i}) = \sigma(x_{j})
 \end{equation}
+
 
 \begin{figure}[h]
 \centering
@@ -170,16 +177,33 @@ it is also known as data normalization and is generally performed during
 the data preprocessing step.}
 \end{figure}
 
-
-
+\paragraph{}
 Lastly, the dataset will be further split into training, test and validation sets. It is very important that dataset is shuffled well to avoid any element of bias before training the ML model. 
 
 \paragraph{}
 
 \section{Method / The Solution}
 \label{sec:3}
-
+Deep learning algorithms are composed of multiple processing levels that learn data representations with multiple levels of abstraction. Using a deep learning network (DNN) implemented in Python (TensorFlow library), we classified the subjects based of each label.
 Design a four layers fully connected Neural Network to capture the non-lineality of the signals.
+
+The proposed architecture consists of five layers of fully connected neural networks (Fig. 1.b) to capture data nonlinearity. An Adam optimizer50 was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches51 and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.
+\paragraph{}
+Parameter initialization included assigning random values between 0 and 1 to the weights and zero values to the biases. However, for the dataset with all features and after feature selection, Xavier initialization was applied to the weights following Eq. 1 to obtain a global minimum of the cost function faster and more efficiently:
+
+\begin{equation} 
+\theta\Rightarrow\theta=\{W_{0},W_{1},W_{2}...,W_{L}\}
+\end{equation}
+
+\begin{equation} 
+Xavier = \sqrt{\frac{2}{neurons}}
+\end{equation}
+
+\paragraph{}
+The weights were still random, but positive and negative values close to 0 are assigned to produce outputs that follow a similar distribution across all neurons. Supplementary Table 4 shows the initialization of the learning rates and the Xavier values for each dataset.
+
+\paragraph{}
+The nonlinear sigmoid function was applied as the activation function of hidden layers. The objective function used measures the error between the neural network’s output and the actual target, as shown in Eq. x:
 
 \begin{figure}[h]
 \centering
@@ -188,12 +212,6 @@ Design a four layers fully connected Neural Network to capture the non-lineality
 Neural Network}
 \end{figure}
 
-
-\paragraph{}
-First we initialize the parameters, weights to random values and biases to zero. W0 is the weight between the input layer and the hidden layer.
-\begin{equation} 
-\theta\Rightarrow\theta=\{W_{0},W_{1},W_{2}...,W_{L}\}
-\end{equation}
 
 \paragraph{}Iterate for N epochs,  for each training example Xi, Yi 
 \begin{equation} 
@@ -240,7 +258,9 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 \nabla_{n-1}=\nabla{n}*W^{T}_{n-1}
 \end{equation}
 
-
+\paragraph{}
+As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layers with a keep probability of 0.560. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 1a–c and Supplementary Figure 4) and 5).
+\paragraph{}
 
 \paragraph{}\paragraph{}
 \section{Results}

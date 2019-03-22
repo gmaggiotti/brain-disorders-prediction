@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.21)  21 MAR 2019 22:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.21)  22 MAR 2019 09:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -162,7 +162,11 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
 )
-No file paper3.aux.
+(./paper3.aux
+
+LaTeX Warning: Label `sec:4' multiply defined.
+
+)
 \openout1 = `paper3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -177,7 +181,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen127
@@ -239,11 +243,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 61.
+(Font)              <7> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 61.
+(Font)              <5> on input line 62.
 
-Overfull \hbox (2.14032pt too wide) in paragraph at lines 65--66
+Overfull \hbox (2.14032pt too wide) in paragraph at lines 66--67
 []\OT1/cmr/m/n/9 In most cases, the di-ag-no-sis of brain dis-or-ders such as e
 pilepsy
  []
@@ -256,14 +260,14 @@ Package epstopdf Info: Source file: <media/eeg-spike.eps>
 (epstopdf)                    size: 236399 bytes
 (epstopdf)             Command: <repstopdf --outfile=media/eeg-spike-eps-conver
 ted-to.pdf media/eeg-spike.eps>
-(epstopdf)             \includegraphics on input line 80.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 <media/eeg-spike-eps-converted-to.pdf, id=1, 1287.81125pt x 862.22125pt>
 File: media/eeg-spike-eps-converted-to.pdf Graphic file (type pdf)
 
 <use media/eeg-spike-eps-converted-to.pdf>
 Package pdftex.def Info: media/eeg-spike-eps-converted-to.pdf used on input lin
-e 80.
+e 81.
 (pdftex.def)             Requested size: 172.98239pt x 124.05188pt.
 
 
@@ -273,13 +277,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./media/eeg-spike-eps-
 converted-to.pdf>]
-Overfull \hbox (12.5438pt too wide) in paragraph at lines 127--129
+Overfull \hbox (12.5438pt too wide) in paragraph at lines 128--130
 []\OT1/cmr/m/n/10 Mirowski, 2009 $[$15$]$ Vari-able fea-ture ex-trac-tion meth-
 ods used SEN71% Sorensen,
  []
 
 
-Overfull \hbox (0.93266pt too wide) in paragraph at lines 142--143
+Overfull \hbox (0.93266pt too wide) in paragraph at lines 143--144
 []\OT1/cmr/m/n/10 Direito, 2012 $[$23$]$ Markov mod-el-ing clas-si-fi-ca-tion s
 ys-tem. Iden-ti-fied four states
  []
@@ -293,15 +297,19 @@ Package epstopdf Info: Source file: <media/image7.eps>
 (epstopdf)                    size: 69497 bytes
 (epstopdf)             Command: <repstopdf --outfile=media/image7-eps-converted
 -to.pdf media/image7.eps>
-(epstopdf)             \includegraphics on input line 166.
+(epstopdf)             \includegraphics on input line 173.
 Package epstopdf Info: Output file is already uptodate.
  <media/image7-eps-converted-to.pdf, id=20, 1011.78pt x 477.785pt>
 File: media/image7-eps-converted-to.pdf Graphic file (type pdf)
 
 <use media/image7-eps-converted-to.pdf>
 Package pdftex.def Info: media/image7-eps-converted-to.pdf used on input line 1
-66.
+73.
 (pdftex.def)             Requested size: 279.12807pt x 142.25761pt.
+ [4 <./media/image7-eps-converted-to.pdf>]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
 Package epstopdf Info: Source file: <media/deep-nn.eps>
 (epstopdf)                    date: 2018-03-26 12:57:56
 (epstopdf)                    size: 109833 bytes
@@ -310,25 +318,23 @@ Package epstopdf Info: Source file: <media/deep-nn.eps>
 (epstopdf)                    size: 77940 bytes
 (epstopdf)             Command: <repstopdf --outfile=media/deep-nn-eps-converte
 d-to.pdf media/deep-nn.eps>
-(epstopdf)             \includegraphics on input line 186.
+(epstopdf)             \includegraphics on input line 210.
 Package epstopdf Info: Output file is already uptodate.
-
-<media/deep-nn-eps-converted-to.pdf, id=21, 784.9325pt x 324.21124pt>
+ <media/deep-nn-eps-converted-to.pdf, id=31, 784.9325pt x 324.21124pt>
 File: media/deep-nn-eps-converted-to.pdf Graphic file (type pdf)
 
 <use media/deep-nn-eps-converted-to.pdf>
 Package pdftex.def Info: media/deep-nn-eps-converted-to.pdf used on input line 
-186.
+210.
 (pdftex.def)             Requested size: 299.04398pt x 135.72255pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4 <./media/image7-eps-converted-to.pdf>]
+ [5 <./media/deep-nn-eps-converted-to.pdf>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¢ in font cmr10!
- [5 <./media/deep-nn-eps-converted-to.pdf>]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+ [6]
 Package epstopdf Info: Source file: <media/image10.eps>
 (epstopdf)                    date: 2018-03-26 12:45:21
 (epstopdf)                    size: 20764 bytes
@@ -337,14 +343,14 @@ Package epstopdf Info: Source file: <media/image10.eps>
 (epstopdf)                    size: 24848 bytes
 (epstopdf)             Command: <repstopdf --outfile=media/image10-eps-converte
 d-to.pdf media/image10.eps>
-(epstopdf)             \includegraphics on input line 253.
+(epstopdf)             \includegraphics on input line 273.
 Package epstopdf Info: Output file is already uptodate.
- <media/image10-eps-converted-to.pdf, id=39, 752.8125pt x 464.73625pt>
+ <media/image10-eps-converted-to.pdf, id=43, 752.8125pt x 464.73625pt>
 File: media/image10-eps-converted-to.pdf Graphic file (type pdf)
 
 <use media/image10-eps-converted-to.pdf>
 Package pdftex.def Info: media/image10-eps-converted-to.pdf used on input line 
-253.
+273.
 (pdftex.def)             Requested size: 258.35364pt x 145.3928pt.
 Package epstopdf Info: Source file: <media/image11.eps>
 (epstopdf)                    date: 2018-03-26 12:46:27
@@ -354,38 +360,35 @@ Package epstopdf Info: Source file: <media/image11.eps>
 (epstopdf)                    size: 23331 bytes
 (epstopdf)             Command: <repstopdf --outfile=media/image11-eps-converte
 d-to.pdf media/image11.eps>
-(epstopdf)             \includegraphics on input line 260.
+(epstopdf)             \includegraphics on input line 280.
 Package epstopdf Info: Output file is already uptodate.
 
-<media/image11-eps-converted-to.pdf, id=40, 752.8125pt x 464.73625pt>
+<media/image11-eps-converted-to.pdf, id=44, 752.8125pt x 464.73625pt>
 File: media/image11-eps-converted-to.pdf Graphic file (type pdf)
 
 <use media/image11-eps-converted-to.pdf>
 Package pdftex.def Info: media/image11-eps-converted-to.pdf used on input line 
-260.
+280.
 (pdftex.def)             Requested size: 256.07921pt x 144.25111pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[6 <./media/image10-eps-converted-to.pdf>]
+ [7 <./media/image10-eps-converted-to.pdf> <./media/image11-eps-converted-to.pd
+f>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 304.
+(Font)              <9> on input line 324.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 304.
- [7 <./media/image11-eps-converted-to.pdf>] [8] (./paper3.aux)
+(Font)              <6> on input line 324.
+ [8] [9] (./paper3.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1938 strings out of 494910
- 27065 string characters out of 6179836
- 89593 words of memory out of 5000000
+ 1940 strings out of 494910
+ 27087 string characters out of 6179836
+ 90675 words of memory out of 5000000
  5222 multiletter control sequences out of 15000+600000
  7635 words of font info for 27 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 37i,5n,23p,988b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,5n,23p,988b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -397,10 +400,10 @@ public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb>
-Output written on paper3.pdf (8 pages, 571575 bytes).
+Output written on paper3.pdf (9 pages, 574713 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
