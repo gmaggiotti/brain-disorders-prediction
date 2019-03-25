@@ -4,8 +4,6 @@ from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 import os
 
-size = 4152
-
 
 def feature_scaling(X):
     return 2 * X / np.amax(X, 0) - 1
@@ -13,7 +11,7 @@ def feature_scaling(X):
 
 def read_dataset(features, rows):
     path = os.path.dirname(os.path.abspath(__file__))
-    dataset = np.loadtxt(path + "/../datasets/data-1k.csv", delimiter=",", skiprows=1, usecols=range(1, features + 1)) \
+    dataset = np.loadtxt(path + "/../datasets/data.csv", delimiter=",", skiprows=1, usecols=range(1, features + 1)) \
         [0:rows]
     X = dataset[:, 0:features - 1]
     Y = dataset[:, features - 1].reshape(X.__len__(), 1)
@@ -22,10 +20,7 @@ def read_dataset(features, rows):
     max = np.matrix(X).max()
     ### Improving gradient descent through feature scaling
     X = feature_scaling(X)
-
     X, Y = shuffle(X, Y)
-    X = X[0:size]
-    Y = Y[0:size]
     return X, Y
 
 
@@ -35,16 +30,19 @@ def predict(X1):
     return result[:test_y.shape[0]]
 
 
-X, Y = read_dataset(179, 1000)
-train_x, test_x, train_y, test_y = train_test_split(X, Y, test_size=0.20, random_state=5)
-
-LR = 0.001
+features = 179
+rows = 5000
+LR = 0.0001
 epochs = 3000
 Xavier = 0.8
+beta = 0.0001
+
+X, Y = read_dataset(features, rows)
+train_x, test_x, train_y, test_y = train_test_split(X, Y, test_size=0.20, random_state=5)
 neurons = train_x.shape[1]
 samples = train_x.shape[0]
-keep_prob = tf.placeholder("float")
 
+keep_prob = tf.placeholder("float")
 x = tf.placeholder(tf.float32, shape=[None, neurons])
 y = tf.placeholder(tf.float32, shape=[None, 1])
 W0 = tf.Variable(tf.truncated_normal([neurons, samples], seed=1), name="W0", dtype=tf.float32) * Xavier
@@ -70,7 +68,6 @@ l5 = tf.sigmoid(tf.add(tf.matmul(l4_dropout, W5), b5))
 
 ### calculate the error
 loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=l5, labels=y))
-beta = 0.0005
 loss = tf.reduce_mean(loss + beta * tf.nn.l2_loss(l5))
 
 ###  decayed learning rate
