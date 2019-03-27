@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.21)  27 MAR 2019 09:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.21)  27 MAR 2019 09:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**paper3.tex
-(./paper3.tex
+**"Automated Brain Disorders Diagnosis.tex"
+(./Automated Brain Disorders Diagnosis.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
 (./llncs.cls
@@ -162,12 +162,8 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
 )
-(./paper3.aux
-
-LaTeX Warning: Label `sec:4' multiply defined.
-
-)
-\openout1 = `paper3.aux'.
+No file "Automated Brain Disorders Diagnosis".aux.
+\openout1 = `"Automated Brain Disorders Diagnosis.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
@@ -181,7 +177,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen127
@@ -376,19 +372,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 324.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 324.
- [8] [9] (./paper3.aux)
+ [8] [9]
+(./Automated Brain Disorders Diagnosis.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 1940 strings out of 494910
- 27087 string characters out of 6179836
- 90675 words of memory out of 5000000
+ 1938 strings out of 494910
+ 27270 string characters out of 6179836
+ 90593 words of memory out of 5000000
  5222 multiletter control sequences out of 15000+600000
  7635 words of font info for 27 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 37i,5n,23p,984b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,5n,23p,1015b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -400,7 +397,8 @@ public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb>
-Output written on paper3.pdf (9 pages, 574943 bytes).
+Output written on "Automated Brain Disorders Diagnosis.pdf" (9 pages, 574943 by
+tes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
