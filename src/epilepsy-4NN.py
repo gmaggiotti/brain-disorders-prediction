@@ -11,7 +11,7 @@ def predict(X1):
 
 
 features = 179
-rows = 1000
+rows = 4600
 LR = 0.0001
 epochs = 3000
 Xavier = 0.8
