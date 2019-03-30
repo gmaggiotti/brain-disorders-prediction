@@ -63,7 +63,7 @@
 
 
 \begin{abstract}
-In most cases, the diagnosis of brain disorders such as epilepsy is slow and requires endless visits to doctors and EEG technicians.  This project aims to automate brain disorder diagnosis by using  Artificial Intelligence and deep learning.  Brain could have many disorders that can be detected by reading an Electroencephalography.  Using an EEG device and collecting the electrical signals directly from the brain with a non-invasive procedure gives significant information about  its health.  Classifying and detecting anomalies on these signals is what currently doctors do when reading an Electroencephalography.  With the right amount of data and the use of machine learning models could be possible to learn and classify these signals into groups like (i.e: anxiety, epilepsy spikes, etc).  Then, a trained Neural Network to interpret those signals and identify evidence of a disorder to finally automate the detection and classification of those disorders found.
+In most cases, the diagnosis of brain disorders such as epilepsy or a tumor is slow and requires endless visits to doctors and electroencephalogram (EEG) technicians. This project aims to automate brain disorder diagnosis by using Artificial Intelligence and deep learning. There are many brain disorders  can be detected by reading an Electroencephalography. Using an EEG device and collecting the electrical signals directly from the brain with a noninvasive procedure gives significant information about its health. Classifying and detecting anomalies on these signals is what doctors currently do when reading an Electroencephalography. With the right amount of data and the use of machine learning models, it could be possible to learn and classify these signals into groups like (i.e: anxiety, epilepsy spikes, abnormal tumor activity, etc). Subsequently, a trained Neural Network would interpret those signals and identify evidence of a disorder to automate the detection and classification of those disorders found. 
 \end{abstract}
 
 
@@ -72,9 +72,14 @@ In most cases, the diagnosis of brain disorders such as epilepsy is slow and req
 \section{Introduction}
 \label{intro}
 
-This paper explores the use of a supervised machine learning approach to automate the detection of specific disorders on the brain by reading the EEG signals.  Primarily it focuses on a type of disorder called Epilepsy.  A further  ongoing research could indicate that  the same approach can be extrapolated to other brain conditions.
+This paper explores the use of a supervised machine learning approach to automate the detection of specific disorders on the brain by reading the EEG signals. Primarily, it focuses on Epilepsy and abnormal tumor activities.  Further research could extrapolate this approach to other brain conditions.
+
 \paragraph{}
-Epilepsy is a chronic disorder caused by an imbalance in the electrical activity of neurons in one or several areas of the brain. In most epilepsies, an anomaly in electrical activity can be observed thru  EEG by registering spikes in the affected areas. These spikes have a unique pattern that can be seen with the naked eye on an electroencephalogram (spikes or peaks are registered with some frequency associated in the amplitudes of the electrical signals recorded). These marks are indicators of the presence of the disorder.
+Epilepsy is a chronic disorder caused by an imbalance in the electrical activity of neurons in one or several areas of the brain. In most epilepsies, an anomaly in electrical activity can be observed through EEG by registering spikes in the affected areas.  These spikes have a unique pattern that can be seen with the naked eye on an electroencephalogram (spikes or peaks are registered with some frequency associated in the amplitudes of the electrical signals recorded).  Also tumors presents a unique pattern in the affected area that can be observed by an EEG.
+
+\paragraph{}
+These marks are indicators of the presence of the disorder. Patients carry this pattern of spikes almost all the time. Seizures or epileptic seizures are events of short duration, being the spikes the catalysts thereof.
+\paragraph{}
 
 \begin{figure}[h]
 \centering
@@ -82,10 +87,8 @@ Epilepsy is a chronic disorder caused by an imbalance in the electrical activity
 \caption{Representative abnormal EEG waveforms.}
 \end{figure}
 
-\paragraph{}
-Patients carry this pattern of spikes almost all the time. Seizures or epileptic seizures are events of short duration, being the spikes the catalysts thereof.
-\paragraph{}
-This anomalous brain activity generates an observable mark or pattern. That footprint can be learned through a deep neural network.  The following section will elaborate the whole process of data extraction, processing as well as the proposed four layers fully connected Neural Network architecture for feature extraction.  Furthermore, the process of training the network with a training-set followed by a validation of the results using a testing/validation set.
+
+This anomalous brain activity generates an observable mark or pattern. That footprint can be learned through a deep neural network. The following section will elaborate the whole process of data extraction and processing, as well as, the proposed five layers of fully connected Neural Network architecture for feature extraction. Furthermore, the process of training the network with a training-set followed by a validation of the results using a testing/validation set. 
 
 \paragraph{}\paragraph{}
 
@@ -178,7 +181,8 @@ the data preprocessing step.}
 \end{figure}
 
 \paragraph{}
-Lastly, the dataset will be further split into training, test and validation sets. It is very important that dataset is shuffled well to avoid any element of bias before training the ML model. 
+Lastly, the dataset will be 
+ split into training, test and validation sets. It is very important that dataset is shuffled well to avoid any element of bias before training the ML model. 
 
 \paragraph{}
 
