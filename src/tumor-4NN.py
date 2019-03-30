@@ -17,7 +17,7 @@ epochs = 3000
 Xavier = 0.8
 beta = 0.0001
 
-X, Y = read_dataset(features, rows, Type.epilepsy)
+X, Y = read_dataset(features, rows, Type.tumor)
 train_x, test_x, train_y, test_y = train_test_split(X, Y, test_size=0.20, random_state=5)
 neurons = train_x.shape[1]
 samples = train_x.shape[0]
