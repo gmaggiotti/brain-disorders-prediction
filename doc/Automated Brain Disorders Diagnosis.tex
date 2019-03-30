@@ -211,7 +211,7 @@ The nonlinear sigmoid function was applied as the activation function of hidden 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=10.51cm,height=4.77cm]{media/deep-nn.eps}
+\includegraphics[width=10.51cm,height=4.77cm]{media/deep-nn1.eps}
 \caption{Architecture for a four layer fully connected 
 Neural Network}
 \end{figure}
@@ -263,10 +263,17 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 \end{equation}
 
 \paragraph{}
-As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layers with a keep probability of 0.560. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 1ac and Supplementary Figure 4) and 5).
+\paragraph{}
+As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layers with a keep probability of 0.5[60]. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
 \paragraph{}
 
-\paragraph{}\paragraph{}
+\begin{figure}[h]
+\centering
+\includegraphics[width=6.08cm,height=5.11cm]{media/training-pro.eps}
+\caption{ Training process}
+\end{figure}
+
+\paragraph{}
 \section{Results}
 \label{sec:4}
 Validation set, 1150 rows of information, was isolated from the the dataset.   The set was used to test the trained model, running it in each of the 1150 rows and comparing predictions with corresponded labels.  After 100 iterations, 99.96\% was reached.
