@@ -152,7 +152,7 @@ Rabbi, 2012 $[$24$]$  Used fuzzy algorithms for feature extraction for classific
 \section{Methodology: Dataset Processing}
 \label{sec:2}
 
-Dataset used was taken from The University of California Irvine [1].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1 for seizure activity; class (2 for abnormal tumor activity and class (5 for patients without seizures. Finally, two dataset were constructed.   For epileptic seizures samples of classes 1 and 5 were used (4600 samples).  And for tumor  activity classes 2 and 5 were used with the same number of samples.
+Dataset used was taken from The University of California Irvine [1][2].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds and sampling rate of the data was 173.61 Hz. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1 for seizure activity; class (2 for abnormal tumor activity and class (5 for patients without seizures.  Finally, two dataset were constructed.   For epileptic seizures samples of classes 1 and 5 were used (4600 samples).  And for tumor  activity classes 2 and 5 were used with the same number of samples.
    
 \paragraph{}
 
@@ -213,7 +213,7 @@ The nonlinear sigmoid function was applied as the activation function of hidden 
 \begin{figure}[h]
 \centering
 \includegraphics[width=10.51cm,height=4.77cm]{media/deep-nn1.eps}
-\caption{Architecture for a four layer fully connected 
+\caption{Architecture for a four five fully connected 
 Neural Network}
 \end{figure}
 
@@ -268,7 +268,7 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 
 \paragraph{}
 \paragraph{}
-As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layers with a keep probability of 0.5[60]. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
+As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layer with a keep probability of 0.5[60]. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
 \paragraph{}
 
 \begin{figure}[h]
@@ -283,19 +283,40 @@ As a regularization procedure for avoiding overfitting, a dropout approach was e
 Validation set, 1150 rows of information, was isolated from the the dataset.   The set was used to test the trained model, running it in each of the 1150 rows and comparing predictions with corresponded labels.  After 100 iterations, 99.96\% was reached.
 \paragraph{}
 
+\begin{table}[h!]
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Country List} \\
+ \hline
+ Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+ \hline
+ Afghanistan   & AF    &AFG&   004\\
+ Aland Islands&   AX  & ALA   &248\\
+ Albania &AL & ALB&  008\\
+ Algeria    &DZ & DZA&  012\\
+ American Samoa&   AS  & ASM&016\\
+ Andorra& AD  & AND   &020\\
+ Angola& AO  & AGO&024\\
+ \hline
+\end{tabular}
+\caption{Table to test captions and labels}
+\end{table}
+
+
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=9.08cm,height=5.11cm]{media/image10.eps}
-\caption{ Error using 1 layer and 4 layers fully connected Neural Networks trained through 1000 epochs. 1 layer error:  0.175971;  4 layers error:  0.012657}
+\caption{ Error using 1 layer and 5 layers fully connected Neural Networks trained through 1000 epochs. 1 layer error:  0.175971;  5 layers error:  0.012657}
 \end{figure}
 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=9.00cm,height=5.07cm]{media/image11.eps}
-\caption{Accuracy on test set using 1 layer and 4 layers fully 
+\caption{Accuracy on test set using 1 layer and 5 layers fully 
 connected Neural Networks trained through 1000 epochs. 1 layer accuracy: 
-0.981064; 4 layers accuracy: 0.996806}
+0.981064; 5 layers accuracy: 0.996806}
 \end{figure}
 
 
@@ -307,6 +328,11 @@ set to zero
 
  
 
+\paragraph{}\paragraph{}
+\paragraph{}\paragraph{}
+\paragraph{}\paragraph{}
+\paragraph{}\paragraph{}
+\paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
 
 \section{Conclusion and Future Directions}

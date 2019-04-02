@@ -12,9 +12,9 @@ def predict(X1):
 
 features = 179
 rows = 1000 #4600
-LR = 0.001
+LR = 0.00001
 epochs = 3000
-Xavier = np.sqrt(1/features)
+Xavier = 1#np.sqrt(1/features)
 
 X, Y = read_dataset(features, rows, Type.epilepsy)
 train_x, test_x, train_y, test_y = train_test_split(X, Y, test_size=0.20, random_state=5)
@@ -23,13 +23,13 @@ samples = train_x.shape[0]
 
 x = tf.placeholder(tf.float32, shape=[None, neurons])
 y = tf.placeholder(tf.float32, shape=[None, 1])
-W0 = tf.Variable(tf.truncated_normal([neurons, samples], seed=1), name="W0", dtype=tf.float32) * Xavier
+W0 = tf.Variable(tf.truncated_normal([neurons, samples]), name="W0", dtype=tf.float32) * Xavier
 b0 = tf.Variable(tf.zeros([samples, 1]), name="bias0", dtype=tf.float32)
-W1 = tf.Variable(tf.truncated_normal([samples, neurons], seed=0), name="W1", dtype=tf.float32) * Xavier
+W1 = tf.Variable(tf.truncated_normal([samples, neurons]), name="W1", dtype=tf.float32) * Xavier
 b1 = tf.Variable(tf.zeros([samples, 1]), name="bias1", dtype=tf.float32)
-W2 = tf.Variable(tf.truncated_normal([neurons, samples], seed=0), name="W2", dtype=tf.float32) * Xavier
+W2 = tf.Variable(tf.truncated_normal([neurons, samples]), name="W2", dtype=tf.float32) * Xavier
 b2 = tf.Variable(tf.zeros([samples, 1]), name="bias2", dtype=tf.float32)
-W3 = tf.Variable(tf.truncated_normal([samples, 1], seed=0), name="W3", dtype=tf.float32) * Xavier
+W3 = tf.Variable(tf.truncated_normal([samples, 1]), name="W3", dtype=tf.float32) * Xavier
 b3 = tf.Variable(tf.zeros([samples, 1]), name="bias3", dtype=tf.float32)
 
 
