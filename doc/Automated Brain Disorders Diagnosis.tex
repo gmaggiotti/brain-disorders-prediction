@@ -188,8 +188,9 @@ Lastly, the dataset will be further split into training, test and validation set
 
 \section{Method / The Solution}
 \label{sec:3}
-Deep learning algorithms are composed of multiple processing layers that learn data representations with multiple levels of abstraction. Using a deep learning network (DNN) implemented in Python (TensorFlow library), we classified the subjects based on each label.  Design a fully connected Neural Network to capture the nonlinearity of the signals. 
-
+Deep learning algorithms are composed of multiple processing layers that learn data representations with multiple levels of abstraction. Using a deep learning network (DNN) implemented in Python (TensorFlow library), we classified the subjects based on each label.  Design a fully connected Neural Network to capture the nonlinearity of the signals.
+ 
+\paragraph{}
 The proposed architecture consists of five layers of fully connected neural networks (Fig. 3) to capture data nonlinearity. An Adam optimizer[50] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.
 
 \paragraph{}
@@ -230,6 +231,7 @@ of classification functions.
 L^{i+1}=sigmoid(g(x)^{i+1})
 \end{equation}
 
+\paragraph{}
 \paragraph{}Calculate the error comparing the output of the NN with the actual target 
 \begin{equation} 
 Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
@@ -239,6 +241,7 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 \widehat{y}=Sigmoid(x_{i}\times w_{i})
 \end{equation}
 
+\paragraph{}
 \paragraph{} Use the chain rule to efficiently compute gradients, top to bottom
 
 \begin{equation} 
@@ -253,6 +256,7 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 \Rightarrow(\frac{\partial E}{\partial w}\widehat{y})= \widehat{y}(1-\widehat{y})
 \end{equation}
 
+\paragraph{}
 \paragraph{}Back propagation of errors using the chain rule
 \begin{equation} 
 \nabla=\frac{\partial E}{\partial w}
