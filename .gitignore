@@ -1,3 +1,4 @@
 .idea/
 epilepsy-prediction.iml
 src/.ipynb_checkpoints/
+*.log
