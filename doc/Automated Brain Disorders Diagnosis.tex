@@ -280,7 +280,13 @@ As a regularization procedure for avoiding overfitting, a dropout approach was e
 \paragraph{}
 \section{Results}
 \label{sec:4}
-Validation set, 1150 rows of information, was isolated from the the dataset.   The set was used to test the trained model, running it in each of the 1150 rows and comparing predictions with corresponded labels.  After 100 iterations, 99.96\% was reached.
+ For the experiment, two different models were built.  The first model is a three-layer fully-connected neural network with the following hyper-parameters: 
+The second model is a five-layer fully-connected neural networks with a learning rate of 0.0001, Xavier parameter of 0.8, dropout with keep prob of \%50, L2 regularization with a beta of 0.0001 and exponential decay. 
+\paragraph{}
+Both models were trained with two datasets, one with patients who had a tumor, for whom brain activity was collected in the affected area. The second group was made up of  patients with epileptic seizures.
+\paragraph{}
+On the UCI dataset,a three-class classification task was performed. The first group, group A, was comprised of  2300 samples of healthy recordings. The second, group B, was a set of 2300 samples of tumor activity recording, The same approach was implemented for epilepsy,  where a set of recordings with epileptic seizures, group  C. Then two datasets were created, A + B for tumor classification and A + C for epileptic seizure classification. Both datasets were shuffled and the data was normalized. 
+
 \paragraph{}
 
 \begin{table}[h!]
@@ -332,8 +338,7 @@ set to zero
 \paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
-\paragraph{}\paragraph{}
-\paragraph{}\paragraph{}
+
 
 \section{Conclusion and Future Directions}
 \label{sec:4}
