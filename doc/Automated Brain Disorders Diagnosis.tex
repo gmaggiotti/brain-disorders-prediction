@@ -95,9 +95,8 @@ This anomalous brain activity generates an observable mark or pattern. That foot
 \section{References on the subject}
 \label{sec:1}
 
-In the past, there has been previous studies on epileptic seizure 
-detection using pure EEG datasets. The following are the most relevant 
-works on the subject (taken from $[$4$]$). The most common classifier 
+In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and tumor related activity. 
+The following are the most relevant works on the subject (taken from $[$4$]$). The most common classifier 
 used was support vector machine (SVM) and for dataset the CHB-MIT 
 database. 
 
@@ -107,45 +106,9 @@ Related references using ANN with poor results $[$5$]$, $[$6$]$,
 $[$11$]$. No works found on the subject related with the use of deep neural networks.
 
 \paragraph{}
+\paragraph{}
+\paragraph{}
 
-Webber, 1996 $[$5$]$ ANN classification system SEN of 76\% and FPR of 1 event/h 
-
-Pradhan, 1996 $[$6$]$  Wavelet transformation feature acquisition, ANN classification SEN of 97\% and SPEC of 89.5\% 
-
-Gabor, 1998 $[$7$]$  Self-organizing neural network with unsupervised training SEN of 92.8\% and FPR of 1.35 events/h 
-
-Wilson, 2004 $[$8$]$   matching pursuit,small neural networks, and clustering algorithm SEN of 76\% and FPR of 0.11 events/h 
-
-Wilson, 2005 $[$9$]$  Used a trained probabilistic neural network SEN of 89\% and FPR of 0.56 events/h 
-
-D'Alessandro, 2005 $[$10$]$  Genetic algorithm for signal processing, probabilistic neural network for classification 
-
-Arabi, 2006 $[$11$]$  Used linear correlation feature selection methods and ANN. SEN of 91\% and FPR of 1.17 events/h 
-
-Chan, 2008 $[$12$]$  SVM system SEN of 80-98\%, FPR of 38\% 
-
-Netoff, 2009 $[$13$]$  Cost-sensitive SVM system SEN of 77.8\%, no false positives detected 
-
-Chua, 2009 $[$14$]$  Data processing by higher-order spectra analysis and classification by the Gaussian mixture Acc=93\% 
-
-Mirowski, 2009 $[$15$]$  Variable feature extraction methods used SEN71\% 
-Sorensen, 2010 $[$16$]$  Features classified by matching pursuit algorithm and classified by SVM SEN of 78-100\% 
-
-Chisci, 2010 $[$17$]$  Least-squares parameter estimator for extraction followed by SVM classification SEN of 100\% 
-
-Peterson, 2011 $[$18$]$  Wavelet transform followed by SVM classification EEG SEN of 99.1\% and PPV of 94.8\% 
-
-Temko, 2011 $[$19$]$  Fast Fourier transform used for feature extraction and SVM classification.  SEN 89\% 
-
-Acharya, 2011 $[$20$]$  Higher-order spectra-based feature extraction followed by SVM, Detection accuracy of 98.5\% 
-
-Kharbouch, 2011 $[$21$]$  Multistep feature extraction system followed by SVM classifier 97\% of seizures, FPR of 0.6 events/day 
-
-Liu, 2012 $[$22$]$  Wavelet decomposition-based feature extraction  and by SVM  SEN of 94.5\% and SPEC of 95.3\% 
-
-Direito, 2012 $[$23$]$  Markov modeling classification system. Identified four states - accuracy of 89.3\% 
-
-Rabbi, 2012 $[$24$]$  Used fuzzy algorithms for feature extraction for classification SEN of 95.8\%
 
 
 \paragraph{}
@@ -182,8 +145,13 @@ the data preprocessing step.}
 \end{figure}
 
 \paragraph{}
+\paragraph{}
+\paragraph{}
+
 Lastly, the dataset will be further split into training, test and validation sets. It is very important that dataset is shuffled well to avoid any element of bias before training the ML model.
 
+\paragraph{}
+\paragraph{}
 \paragraph{}
 
 \section{Method / The Solution}
@@ -290,22 +258,19 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 \paragraph{}
 
 \begin{table}[h!]
-\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+\begin{tabular}{ |p{3cm}||p{2cm}|p{2cm}|p{2cm}|p{1.5cm}|  }
  \hline
- \multicolumn{4}{|c|}{Country List} \\
+ \multicolumn{5}{|c|}{Country List} \\
  \hline
- Country Name     or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+ Model     & Dataset &Accuracy&Error& Number of Iterations\\
  \hline
- Afghanistan   & AF    &AFG&   004\\
- Aland Islands&   AX  & ALA   &248\\
- Albania &AL & ALB&  008\\
- Algeria    &DZ & DZA&  012\\
- American Samoa&   AS  & ASM&016\\
- Andorra& AD  & AND   &020\\
- Angola& AO  & AGO&024\\
+ 2 Layer NN & Epilepsy &AFG&   004 &a\\
+ 5 Layer NN & Epilepsy  & ALA   &248 &a\\
+ 2 Layer NN & Tumor & a &  008 &a\\
+ 5 Layer NN & Tumor & DZA&  012 &a\\
  \hline
 \end{tabular}
-\caption{Table to test captions and labels}
+\caption{ The accuracy of the validation set, the training error and the number of iterations for each model and dataset.}
 \end{table}
 
 
