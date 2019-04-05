@@ -54,9 +54,9 @@ with tf.Session() as sess:
 
         if epoch % (epochs * .01) == 0 or epoch == (epochs - 1):
             error = np.mean(np.abs(train_y - output))
-            evar = (train_y - output).var()
+            estd = (train_y - output).std()
             test_error = np.abs((predict(test_x) - test_y))
             accuracy = 1 - np.mean(test_error)
-            avar = test_error.var()
-            print("{},{},{},{},{}".format(epoch, error, evar, accuracy, avar))
+            astd = test_error.std()
+            print("{},{},{},{},{}".format(epoch, error, estd, accuracy, astd))
     print('EOC')

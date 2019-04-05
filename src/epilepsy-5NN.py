@@ -13,7 +13,7 @@ def predict(X1):
 features = 179
 rows = 4600
 LR = 0.0001
-epochs = 3000
+epochs = 301
 Xavier = 0.8
 beta = 0.0001
 
@@ -64,11 +64,11 @@ with tf.Session() as sess:
         ### run the optimizer
         l5_, opt, lo = sess.run([l5, optimizer, loss], feed_dict={x: train_x, y: train_y, keep_prob: 0.5})
 
-        if epoch % (epochs * .001) == 0 or epoch == (epochs - 1):
+        if True or epoch % (epochs * .001) == 0 or epoch == (epochs - 1):
             error = np.mean(np.abs(train_y - l5_))
-            evar = (train_y - l5_).var()
+            estd = (train_y - l5_).std()
             test_error = np.abs((predict(test_x) - test_y))
             accuracy = 1 - np.mean(test_error)
-            avar = test_error.var()
-            print("{},{},{},{},{}".format(epoch, error, evar, accuracy, avar))
+            astd = test_error.std()
+            print("{},{},{},{},{}".format(epoch, error, estd, accuracy, astd))
     print('EOC')
