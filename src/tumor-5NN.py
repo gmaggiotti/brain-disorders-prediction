@@ -14,28 +14,29 @@ features = 179
 rows = 4600
 LR = 0.0001
 epochs = 6000
-Xavier = 1
+Xavier = 0.85
 beta = 0.0001
 
 X, Y = read_dataset(features, rows, Type.tumor)
 train_x, test_x, train_y, test_y = train_test_split(X, Y, test_size=0.20, random_state=5)
 neurons = train_x.shape[1]
 samples = train_x.shape[0]
+s = 3680
 
 keep_prob = tf.placeholder("float")
 x = tf.placeholder(tf.float32, shape=[None, neurons])
 y = tf.placeholder(tf.float32, shape=[None, 1])
 W0 = tf.Variable(tf.truncated_normal([neurons, samples], seed=1), name="W0", dtype=tf.float32) * Xavier
 b0 = tf.Variable(tf.zeros([samples, 1]), name="bias0", dtype=tf.float32)
-W1 = tf.Variable(tf.truncated_normal([samples, neurons], seed=0), name="W1", dtype=tf.float32) * Xavier
+W1 = tf.Variable(tf.truncated_normal([samples, s], seed=0), name="W1", dtype=tf.float32) * Xavier
 b1 = tf.Variable(tf.zeros([samples, 1]), name="bias1", dtype=tf.float32)
-W2 = tf.Variable(tf.truncated_normal([neurons, samples], seed=0), name="W2", dtype=tf.float32) * Xavier
+W2 = tf.Variable(tf.truncated_normal([s, s], seed=0), name="W2", dtype=tf.float32) * Xavier
 b2 = tf.Variable(tf.zeros([samples, 1]), name="bias2", dtype=tf.float32)
-W3 = tf.Variable(tf.truncated_normal([samples, samples], seed=0), name="W3", dtype=tf.float32) * Xavier
+W3 = tf.Variable(tf.truncated_normal([s, s], seed=0), name="W3", dtype=tf.float32) * Xavier
 b3 = tf.Variable(tf.zeros([samples, 1]), name="bias3", dtype=tf.float32)
-W4 = tf.Variable(tf.truncated_normal([samples, samples], seed=0), name="W4", dtype=tf.float32) * Xavier
+W4 = tf.Variable(tf.truncated_normal([s, s], seed=0), name="W4", dtype=tf.float32) * Xavier
 b4 = tf.Variable(tf.zeros([samples, 1]), name="bias4", dtype=tf.float32)
-W5 = tf.Variable(tf.truncated_normal([samples, 1], seed=0), name="W5", dtype=tf.float32) * Xavier
+W5 = tf.Variable(tf.truncated_normal([s, 1], seed=0), name="W5", dtype=tf.float32) * Xavier
 b5 = tf.Variable(tf.zeros([samples, 1]), name="bias5", dtype=tf.float32)
 
 l0 = tf.sigmoid(tf.add(tf.matmul(x, W0), b0))
@@ -64,7 +65,7 @@ with tf.Session() as sess:
         ### run the optimizer
         l5_, opt, lo = sess.run([l5, optimizer, loss], feed_dict={x: train_x, y: train_y, keep_prob: 0.6})
 
-        if  True or epoch % (epochs * .01) == 0 or epoch == (epochs - 1):
+        if  epoch % (epochs * .01) == 0 or epoch == (epochs - 1):
             error = np.mean(np.abs(train_y - l5_))
             estd = (train_y - l5_).std()
             test_error = np.abs((predict(test_x) - test_y))
