@@ -11,7 +11,7 @@ def predict(X1):
 
 
 features = 179
-rows = 1000 #4600
+rows = 4600
 LR = 0.00001
 epochs = 3000
 Xavier = 1#np.sqrt(1/features)
@@ -52,7 +52,7 @@ with tf.Session() as sess:
         ### run the optimizer
         output, opt, lo = sess.run([l3, optimizer, loss], feed_dict={x: train_x, y: train_y})
 
-        if epoch % (epochs * .01) == 0 or epoch == (epochs - 1):
+        if True or epoch % (epochs * .01) == 0 or epoch == (epochs - 1):
             error = np.mean(np.abs(train_y - output))
             estd = (train_y - output).std()
             test_error = np.abs((predict(test_x) - test_y))
