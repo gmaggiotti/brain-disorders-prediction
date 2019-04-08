@@ -250,11 +250,10 @@ As a regularization procedure for avoiding overfitting, a dropout approach was e
 \paragraph{}
 \section{Results}
 \label{sec:4}
- For the experiment, two different models were built.  The first model is a three-layer fully-connected neural network with a learning rate of XXX and sigmoid as activation function.
-The second model is a five-layer fully-connected neural networks with a learning rate of 0.0001, Xavier parameter of 0.8, dropout with a keep probability of 50\%, L2 regularization with a beta of 0.0001, sigmoid activation and exponential decay. 
+ The main model used in the experiments was a five-layer fully-connected neural networks with a learning rate of 0.0001, Xavier parameter of 0.8, dropout with a keep probability of 50\%, L2 regularization with a beta of 0.0001, sigmoid activation and exponential decay. 
 
 \paragraph{}
-Both models were trained with two datasets, one with patients who had a tumor, for whom brain activity was collected in the affected area. The second group was made up of  patients with epileptic seizures.
+The model was trained with two datasets, one with patients who had a tumor, for whom brain activity was collected in the affected area. The second group was made up of  patients with epileptic seizures.
 \paragraph{}
 On the UCI dataset,a three-class classification task was performed. The first group, group A, was comprised of  2300 samples of healthy recordings. The second, group B, was a set of 2300 samples of tumor activity recording, The same approach was implemented for epilepsy,  where a set of recordings with epileptic seizures, group  C. Then two datasets were created, A + B for tumor classification and A + C for epileptic seizure classification. Both datasets were shuffled and the data was normalized. For each dataset 80\% was taken for training and the remaining 20\% for validation. 
 
@@ -265,12 +264,11 @@ On the UCI dataset,a three-class classification task was performed. The first gr
  \hline
  \multicolumn{5}{|c|}{Country List} \\
  \hline
- Model     & Dataset &Accuracy&Error& Number of Iterations\\
+ Model     & Dataset &Accuracy \%&Error \%& Number of Iterations\\
  \hline
- 2 Layer NN & Epilepsy &AFG&   004 &a\\
- 5 Layer NN & Epilepsy  & ALA   &248 &a\\
- 2 Layer NN & Tumor & a &  008 &a\\
- 5 Layer NN & Tumor & DZA&  012 &a\\
+ 3 Layer NN & Epilepsy &97.06 +/- 0.14& 1.2 +/- 0.9 &300\\
+ 5 Layer NN & Epilepsy  & 99.69 +/- 0.05   &0.3 +/- 0.6 &300\\
+ 5 Layer NN & Tumor & 85.04 +/- 0.08 &  2.99 +/- 0.16 &2760\\
  \hline
 \end{tabular}
 \caption{ The accuracy of the validation set, the training error and the number of iterations for each model and dataset.}
@@ -280,25 +278,19 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=9.08cm,height=5.11cm]{media/image10.eps}
+\includegraphics[width=12.08cm,height=5.11cm]{media/results.eps}
 \caption{ Error using 1 layer and 5 layers fully connected Neural Networks trained through 1000 epochs. 1 layer error:  0.175971;  5 layers error:  0.012657}
 \end{figure}
 
 
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=9.00cm,height=5.07cm]{media/image11.eps}
-\caption{Accuracy on test set using 1 layer and 5 layers fully 
-connected Neural Networks trained through 1000 epochs. 1 layer accuracy: 
-0.981064; 5 layers accuracy: 0.996806}
+\includegraphics[width=12.08cm,height=5.11cm]{media/results2.eps}
+\caption{ Error using 1 layer and 5 layers fully connected Neural Networks trained through 1000 epochs. 1 layer error:  0.175971;  5 layers error:  0.012657}
 \end{figure}
 
 
-\textbf{Hyper-parameters used: }learning rate 0.001, L2 Regularization with beta of 0.001, dropout with keep\_prob of 50\%, Mini-batch / SGD 
-- batch size 100; 1000 epochs; 11000 samples; 80\% for training set and 
-20\% for validation set; improve of gradient descent through feature 
-scaling; Sigmoid as activation function; also random weights and biases 
-set to zero
 
  
 
