@@ -176,7 +176,7 @@ Lastly, the dataset will be further split into training, test and validation set
 Deep learning algorithms are composed of multiple processing layers that learn data representations with multiple levels of abstraction. Using a deep learning network (DNN) implemented in Python (TensorFlow library), we classified the subjects based on each label.  Design a fully connected Neural Network to capture the nonlinearity of the signals.
  
 \paragraph{}
-The proposed architecture consists of five layers of fully connected neural networks (Fig. 3) to capture data nonlinearity. An Adam optimizer[50] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.
+The proposed architecture consists of five layers of fully connected neural networks (Fig. 3) to capture data nonlinearity. An Adam optimizer[51] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.  A reference to the code can be found at [50]. 
 
 \paragraph{}
 Parameter initialization included assigning random values between 0 and 1 to the weights and zero values to the biases. However, for the dataset with all features and after feature selection, Xavier initialization was applied to the weights following Eq. 1 to obtain a global minimum of the cost function faster and more efficiently: 
@@ -342,9 +342,7 @@ Another area of interest would be Electrocardiogram signals. Further works can a
 
 
 
-$[$1$]$ - \underline{
-https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition}
-
+$[$1$]$ - \underline{https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition}
 $[$2$]$ - Andrzejak RG, Lehnertz K, Rieke C, Mormann F, David P, Elger 
 CE (2001) Indications of nonlinear deterministic and finite dimensional 
 structures in time series of brain electrical activity: Dependence on 
@@ -425,6 +423,7 @@ analysis and topographic mapping
 $[$24$]$ A.F. Rabbi, R. Fazel-Rezai - A fuzzy logic system for seizure 
 onset detection in intracranial EEG
 
+$[$50$]$ "source code" - https://github.com/gmaggiotti/brain-disorders-prediction
 
 
 
