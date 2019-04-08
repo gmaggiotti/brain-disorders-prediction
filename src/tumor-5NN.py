@@ -21,7 +21,7 @@ X, Y = read_dataset(features, rows, Type.tumor)
 train_x, test_x, train_y, test_y = train_test_split(X, Y, test_size=0.20, random_state=5)
 neurons = train_x.shape[1]
 samples = train_x.shape[0]
-s = 3680
+s = 2400
 
 keep_prob = tf.placeholder("float")
 x = tf.placeholder(tf.float32, shape=[None, neurons])
