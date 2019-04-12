@@ -97,7 +97,7 @@ This anomalous brain activity generates an observable mark or pattern. That foot
 \section{Related work on the subject}
 \label{sec:1}
 
- In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifier used was support vector machine (SVM) and K Near Neighborhoods (KNN) for datasets like CHB-MIT and UCI database. 
+ In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifiers used were support vector machine (SVM) and K Near Neighborhoods (KNN) for datasets like CHB-MIT and UCI database. 
 
 In the recent years more work has been done using neural networks and deep learning.  Most of these works present a much better results regardless dataset been used.
 
@@ -127,7 +127,7 @@ Diyuan Lu, Jochen Triesch& $[$27$]$ - Image classification and object recognitio
 
  \hline
 \end{tabular}
-\caption{ The accuracy of the validation set, the training error and the number of iterations for each model and dataset.}
+\caption{ Related work}
 \end{table}
 
 \paragraph{}
@@ -144,7 +144,7 @@ Dataset used was taken from The University of California Irvine [1][2].  UCI con
    
 \paragraph{}
 
-To avoid saturation on the activation function and to make the gradient descent converge faster, the features were normalized to a range of values between -1 and 1 so that all features have a similar scale Eq.(1,2,3). The method used was standardization, which makes every feature have a zero mean value and unit variance. It is calculated for each feature as follows:
+To avoid saturation on the activation function and to make the gradient descent converge faster, the features were normalized to a range of values between -1 and 1 so that all features have a similar scale Eq.(1). The method used was standardization, which makes every feature have a zero mean Eq.(2) value and unit variance Eq.(3). It is calculated for each feature as follows:
 
 
 \begin{equation} 
@@ -180,13 +180,13 @@ Lastly, the dataset was further split into training and validation sets. It is v
 
 \section{Method / The Solution}
 \label{sec:3}
-Deep learning algorithms are composed of multiple processing layers that learn data representations with multiple levels of abstraction. Using a deep learning network (DNN) implemented in Python (TensorFlow library), we classified the subjects based on each label.  Design a fully connected Neural Network to capture the nonlinearity of the signals.
+Deep learning algorithms are composed of multiple processing layers that learn data representations with multiple levels of abstraction[51]. Using a deep learning network (DNN) implemented in Python (TensorFlow library), we classified the subjects based on each label.  Design a fully connected Neural Network to capture the nonlinearity of the signals.
  
 \paragraph{}
 The proposed architecture consists of five layers of fully connected neural networks (Fig. 3) to capture data nonlinearity. An Adam optimizer[51] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.  A reference to the project and code can be found at [50]. 
 
 \paragraph{}
-Parameter initialization included assigning random values between 0 and 1 to the weights Eq.(4) and zero values to the biases. Also, Xavier initialization was applied to the weights following Eq.(5) to make the variance to remain the same as we pass through each layer and preserve the back propagated signal as well.  This helpes to reach the minimum of the cost function faster and more efficiently: 
+Parameter initialization included assigning random values between 0 and 1 to the weights Eq.(4) and zero values to the biases. Also, Xavier initialization [52] was applied to the weights following Eq.(5) to make the variance to remain the same as we pass through each layer and preserve the back propagated signal as well.  This helpes to reach the minimum of the cost function faster and more efficiently: 
 
 \begin{equation} 
 \theta\Rightarrow\theta=\{W_{0},W_{1},W_{2}...,W_{L}\}
@@ -440,8 +440,9 @@ A Hubness-aware Approach - https://www.uni-obuda.hu/journal/Buza\_Koller\_66.pdf
 
 $[$50$]$ "source code" - https://github.com/gmaggiotti/brain-disorders-prediction
 
+$[$51$]$ LeCun, Y., Bengio, Y. and Hinton, G. Deep learning. Nature 521, 436, doi:doi:10.1038/nature14539 (2015).
 
-
+$[$52$]$ Glorot, Xavier and Bengio, Yoshua. (2010) Understanding the difficulty of training deep feedforward neural networks. In Proceedings of the International Conference on Artificial Intelligence and Statistics (AISTATS10). Society for Artificial Intelligence and Statistics.
 
 
 \end{thebibliography}
