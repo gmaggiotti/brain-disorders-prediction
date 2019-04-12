@@ -63,7 +63,7 @@
 
 
 \begin{abstract}
-In most cases, the diagnosis of brain disorders such as epilepsy or a tumor is slow and requires endless visits to doctors and electroencephalogram (EEG) technicians. This project aims to automate brain disorder diagnosis by using Artificial Intelligence and deep learning. There are many brain disorders  can be detected by reading an Electroencephalography. Using an EEG device and collecting the electrical signals directly from the brain with a noninvasive procedure gives significant information about its health. Classifying and detecting anomalies on these signals is what doctors currently do when reading an Electroencephalography. With the right amount of data and the use of machine learning models, it could be possible to learn and classify these signals into groups like (i.e: anxiety, epilepsy spikes, abnormal tumor activity, etc). Subsequently, a trained Neural Network would interpret those signals and identify evidence of a disorder to automate the detection and classification of those disorders found. 
+In most cases, the diagnosis of brain disorders such as epilepsy or a brain tumor is slow and requires endless visits to doctors and electroencephalogram (EEG) technicians. This project aims to automate brain disorder diagnosis by using Artificial Intelligence and deep learning. There are many brain disorders  can be detected by reading an Electroencephalography. Using an EEG device and collecting the electrical signals directly from the brain with a noninvasive procedure gives significant information about its health. Classifying and detecting anomalies on these signals is what doctors currently do when reading an Electroencephalography. With the right amount of data and the use of machine learning models, it could be possible to learn and classify these signals into groups like (i.e: anxiety, epilepsy spikes, abnormal tumor activity, etc). Subsequently, a trained Neural Network would interpret those signals and identify evidence of a disorder to automate the detection and classification of those disorders found. Results are promising, with classification accuracy of 99.69\% for epilepsy and 85.04\% for brain tumor.
 
 \keywords{Brain Disorders, EEG, Deep Neural Networks}
 \end{abstract}
@@ -77,7 +77,7 @@ In most cases, the diagnosis of brain disorders such as epilepsy or a tumor is s
 This paper explores the use of a supervised machine learning approach to automate the detection of specific disorders on the brain by reading the EEG signals. Primarily, it focuses on Epilepsy and abnormal tumor activities.  Further research could extrapolate this approach to other brain conditions.
 
 \paragraph{}
-Epilepsy is a chronic disorder caused by an imbalance in the electrical activity of neurons in one or several areas of the brain. In most epilepsies, an anomaly in electrical activity can be observed through EEG by registering spikes in the affected areas.  These spikes have a unique pattern that can be seen with the naked eye on an electroencephalogram (spikes or peaks are registered with some frequency associated in the amplitudes of the electrical signals recorded).  Also tumors presents a unique pattern in the affected area that can be observed by an EEG.
+Epilepsy is a chronic disorder caused by an imbalance in the electrical activity of neurons in one or several areas of the brain. In most epilepsies, an anomaly in electrical activity can be observed through EEG by registering spikes in the affected areas.  These spikes have a unique pattern that can be seen with the naked eye on an electroencephalogram (spikes or peaks are registered with some frequency associated in the amplitudes of the electrical signals recorded).  Also brain tumors presents a unique pattern in the affected area that can be observed by an EEG.
 
 \paragraph{}
 These marks are indicators of the presence of the disorder. Patients carry this pattern of spikes almost all the time. Seizures or epileptic seizures are events of short duration, being the spikes the catalysts thereof.
@@ -97,9 +97,9 @@ This anomalous brain activity generates an observable mark or pattern. That foot
 \section{Related work on the subject}
 \label{sec:1}
 
- In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and tumor related activity. The most common classifier used was support vector machine (SVM) and K Near Neighborhoods (KNN) for datasets like CHB-MIT and UCI database. 
+ In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifier used was support vector machine (SVM) and K Near Neighborhoods (KNN) for datasets like CHB-MIT and UCI database. 
 
-In the last years more work has been done using neural networks and deep learning.  Most of these works present a much better results regardless dataset been used.
+In the recent years more work has been done using neural networks and deep learning.  Most of these works present a much better results regardless dataset been used.
 
 \paragraph{}
 The following are the most relevant works on the subject .
@@ -115,9 +115,14 @@ The following are the most relevant works on the subject .
  Liu&  $[$22$]$ - Wavelet decomposition-based feature extraction  and by SVM  SEN of 94.5\% and SPEC of 95.3\% & 2012 \\
 Direito& $[$23$]$ - Markov modeling classification system. Identified four states - accuracy of 89.3\% & 2012 \\
 Rabbi& $[$24$]$ - Used fuzzy algorithms for feature extraction for classification SEN of 95.8\%  & 2012 \\
-Thodorof, Pineau, Lim& $[$25$]$ - recurrent convolutional architecture designed to capture spectral, temporal and spatial patterns representing a seizure  & 2016 \\
 
-Diyuan Lu, Jochen Triesch& $[$26$]$ - image classification and object recognition methods based on convolutional neural networks  & 2019 \\
+Krisztian Buza, Júlia Kollerh& $[$25$]$ - Classification of Electroencephalograph Data:
+A Hubness-aware Approach  & 2016 \\
+
+Thodorof, Pineau, Lim& $[$26$]$ - recurrent convolutional architecture designed to capture spectral, temporal and spatial patterns representing a seizure  & 2016 \\
+
+Diyuan Lu, Jochen Triesch& $[$27$]$ - Image classification and object recognition methods based on convolutional neural networks  & 2019 \\
+
 
 
  \hline
@@ -135,7 +140,7 @@ Diyuan Lu, Jochen Triesch& $[$26$]$ - image classification and object recognitio
 \section{Methodology: Dataset Processing}
 \label{sec:2}
 
-Dataset used was taken from The University of California Irvine [1][2].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds and sampling rate of the data was 173.61 Hz. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1 for seizure activity; class (2 for abnormal tumor activity and class (5 for patients without seizures.  Finally, two dataset were constructed.   For epileptic seizures samples of classes 1 and 5 were used (4600 samples).  And for tumor  activity classes 2 and 5 were used with the same number of samples.
+Dataset used was taken from The University of California Irvine [1][2].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds and sampling rate of the data was 173.61 Hz. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1 for seizure activity; class (2 for abnormal tumor activity and class (5 for patients without seizures.  Finally, two dataset were constructed.   For epileptic seizures samples of classes 1 and 5 were used (4600 samples).  And for brain tumor activity classes 2 and 5 were used with the same number of samples.  
    
 \paragraph{}
 
@@ -270,9 +275,9 @@ As a regularization procedure for avoiding overfitting, a dropout approach was e
  The main model used in the experiments was a five-layer fully-connected neural networks with a learning rate of 0.0001, Xavier parameter of 0.8, dropout with a keep probability of 50\%, L2 regularization with a beta of 0.0001, sigmoid activation and exponential decay. 
 
 \paragraph{}
-The model was trained with two datasets, one with patients who had a tumor, for whom brain activity was collected in the affected area. The second group was made up of  patients with epileptic seizures.
+The model was trained with two datasets, one with patients who had a brain tumor, for whom brain activity was collected in the affected area. The second group was made up of  patients with epileptic seizures.
 \paragraph{}
-On the UCI dataset,a three-class classification task was performed. The first group, group A, was comprised of  2300 samples of healthy recordings. The second, group B, was a set of 2300 samples of tumor activity recording, The same approach was implemented for epilepsy,  where a set of recordings with epileptic seizures, group  C. Then two datasets were created, A + B for tumor classification and A + C for epileptic seizure classification. Both datasets were shuffled and the data was normalized. For each dataset 80\% was taken for training and the remaining 20\% for validation. 
+On the UCI dataset,a three-class classification task was performed. The first group, group A, was comprised of  2300 samples of healthy recordings. The second, group B, was a set of 2300 samples of brain tumor activity recording, The same approach was implemented for epilepsy,  where a set of recordings with epileptic seizures, group  C. Then two datasets were created, A + B for brain tumor classification and A + C for epileptic seizure classification. Both datasets were shuffled and the data was normalized. For each dataset 80\% was taken for training and the remaining 20\% for validation. 
 
 \paragraph{}
 
@@ -285,7 +290,7 @@ On the UCI dataset,a three-class classification task was performed. The first gr
  \hline
  3 Layer NN & Epilepsy &97.06 +/- 0.14& 1.2 +/- 0.9 &300\\
  5 Layer NN & Epilepsy  & 99.69 +/- 0.05   &0.3 +/- 0.6 &300\\
- 5 Layer NN & Tumor & 85.04 +/- 0.08 &  2.99 +/- 0.16 &2760\\
+ 5 Layer NN & Brain Tumor & 85.04 +/- 0.08 &  2.99 +/- 0.16 &2760\\
  \hline
 \end{tabular}
 \caption{ The accuracy of the validation set, the training error and the number of iterations for each model and dataset.}
@@ -326,7 +331,7 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 \paragraph{}
 The results are prominent and suggest that the model with existing clinical systems and practices may enable clinicians to make accurate epilepsy diagnosis and start  treatments earlier.
 \paragraph{}
-Moreover, it opens a door to extend the work on other areas like diagnosis of dementia, brain damage, brain diseases, psychiatric disorders, tumors, stroke, seizure forecasting from the study of interictal, preictal and ictal states and other focal brain disorders. 
+Moreover, it opens a door to extend the work on other areas like diagnosis of dementia, brain damage, brain diseases, psychiatric disorders, brain tumors, stroke, seizure forecasting from the study of interictal, preictal and ictal states and other focal brain disorders. 
 \paragraph{}
 Another area of interest would be Electrocardiogram signals. Further works can also be done on predicting heart attacks from ECG signals (people carrying holter monitors). 
 
@@ -425,10 +430,13 @@ analysis and topographic mapping
 $[$24$]$ A.F. Rabbi, R. Fazel-Rezai - A fuzzy logic system for seizure 
 onset detection in intracranial EEG
 
-$[$25$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection
+$[$25$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection - https://arxiv.org/pdf/1608.00220.pdf
 
 $[$26$]$ Diyuan Lu, Jochen Triesch - Residual Deep Convolutional Neural Network for
-EEG Signal Classification in Epilepsy
+EEG Signal Classification in Epilepsy - https://arxiv.org/pdf/1903.08100.pdf
+
+$[$27$]$ Krisztian Buza, Júlia Koller - Classification of Electroencephalograph Data,
+A Hubness-aware Approach - https://www.uni-obuda.hu/journal/Buza\_Koller\_66.pdf
 
 $[$50$]$ "source code" - https://github.com/gmaggiotti/brain-disorders-prediction
 
