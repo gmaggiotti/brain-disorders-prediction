@@ -97,15 +97,13 @@ This anomalous brain activity generates an observable mark or pattern. That foot
 \section{Related work on the subject}
 \label{sec:1}
 
-In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and tumor related activity. 
-The following are the most relevant works on the subject (taken from $[$4$]$). The most common classifier 
-used was support vector machine (SVM) and for dataset the CHB-MIT 
-database. 
+ In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and tumor related activity. The most common classifier used was support vector machine (SVM) and K Near Neighborhoods (KNN) for datasets like CHB-MIT and UCI database. 
 
+In the last years more work has been done using neural networks and deep learning.  Most of these works present a much better results regardless dataset been used.
 
 \paragraph{}
-Related references using ANN with poor results $[$5$]$, $[$6$]$, 
-$[$11$]$. No works found on the subject related with the use of deep neural networks.
+The following are the most relevant works on the subject .
+
 
 \begin{table}[h!]
 \begin{tabular}{ |p{1.6cm}|p{10cm}|p{1.0cm}|  }
@@ -118,6 +116,10 @@ $[$11$]$. No works found on the subject related with the use of deep neural netw
 Direito& $[$23$]$ - Markov modeling classification system. Identified four states - accuracy of 89.3\% & 2012 \\
 Rabbi& $[$24$]$ - Used fuzzy algorithms for feature extraction for classification SEN of 95.8\%  & 2012 \\
 Thodorof, Pineau, Lim& $[$25$]$ - recurrent convolutional architecture designed to capture spectral, temporal and spatial patterns representing a seizure  & 2016 \\
+
+Diyuan Lu, Jochen Triesch& $[$26$]$ - image classification and object recognition methods based on convolutional neural networks  & 2019 \\
+
+
  \hline
 \end{tabular}
 \caption{ The accuracy of the validation set, the training error and the number of iterations for each model and dataset.}
@@ -193,7 +195,7 @@ Xavier = \sqrt{\frac{2}{features}}
 The weights were still random, but positive and negative values close to 0 were assigned to produce outputs that followed a similar distribution across all neurons. 
 
 \paragraph{}
-The nonlinear sigmoid function was applied as the activation function of hidden layers. The objective function used measures the error between the neural networks output and the actual target, as shown in Eq. 7: 
+The nonlinear sigmoid function Eq.(7) was applied as the activation function of hidden layers. The objective function used measures the error between the neural networks output and the actual target, as shown in Eq.(8): 
 
 \begin{figure}[h]
 \centering
@@ -422,6 +424,11 @@ analysis and topographic mapping
 
 $[$24$]$ A.F. Rabbi, R. Fazel-Rezai - A fuzzy logic system for seizure 
 onset detection in intracranial EEG
+
+$[$25$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection
+
+$[$26$]$ Diyuan Lu, Jochen Triesch - Residual Deep Convolutional Neural Network for
+EEG Signal Classification in Epilepsy
 
 $[$50$]$ "source code" - https://github.com/gmaggiotti/brain-disorders-prediction
 
