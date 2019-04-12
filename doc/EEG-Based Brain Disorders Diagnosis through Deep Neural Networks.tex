@@ -137,7 +137,7 @@ Dataset used was taken from The University of California Irvine [1][2].  UCI con
    
 \paragraph{}
 
-To avoid saturation on the activation function and to make the gradient descent converge faster, the features were normalized to a range of values between -1 and 1 so that all features have a similar scale. The method used was standardization, which makes every feature have a zero mean value and unit variance. It is calculated for each feature as follows:
+To avoid saturation on the activation function and to make the gradient descent converge faster, the features were normalized to a range of values between -1 and 1 so that all features have a similar scale Eq.(1,2,3). The method used was standardization, which makes every feature have a zero mean value and unit variance. It is calculated for each feature as follows:
 
 
 \begin{equation} 
@@ -179,7 +179,7 @@ Deep learning algorithms are composed of multiple processing layers that learn d
 The proposed architecture consists of five layers of fully connected neural networks (Fig. 3) to capture data nonlinearity. An Adam optimizer[51] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.  A reference to the project and code can be found at [50]. 
 
 \paragraph{}
-Parameter initialization included assigning random values between 0 and 1 to the weights and zero values to the biases. Also, Xavier initialization was applied to the weights following Eq. 1 to obtain a global minimum of the cost function faster and more efficiently: 
+Parameter initialization included assigning random values between 0 and 1 to the weights Eq.(4) and zero values to the biases. Also, Xavier initialization was applied to the weights following Eq.(5) to make the variance to remain the same as we pass through each layer and preserve the back propagated signal as well.  This helpes to reach the minimum of the cost function faster and more efficiently: 
 
 \begin{equation} 
 \theta\Rightarrow\theta=\{W_{0},W_{1},W_{2}...,W_{L}\}
