@@ -106,7 +106,7 @@ The following are the most relevant works on the subject .
 
 
 \begin{table}[h!]
-\begin{tabular}{ |p{1.6cm}|p{10cm}|p{1.0cm}|  }
+\begin{tabular}{ |p{1.8cm}|p{10cm}|p{1.0cm}|  }
 
  \hline
  Author     & & \\
@@ -116,12 +116,14 @@ The following are the most relevant works on the subject .
 Direito& $[$23$]$ - Markov modeling classification system. Identified four states - accuracy of 89.3\% & 2012 \\
 Rabbi& $[$24$]$ - Used fuzzy algorithms for feature extraction for classification SEN of 95.8\%  & 2012 \\
 
-Krisztian Buza, Júlia Kollerh& $[$25$]$ - Classification of Electroencephalograph Data:
+Sharanreddy, Kulkarni& $[$25$]$ - Automated EEG signal analysis for identification of epilepsy seizures and brain tumour  & 2015 \\
+
+Krisztian Buza, Júlia Kollerh& $[$26$]$ - Classification of Electroencephalograph Data:
 A Hubness-aware Approach  & 2016 \\
 
-Thodorof, Pineau, Lim& $[$26$]$ - recurrent convolutional architecture designed to capture spectral, temporal and spatial patterns representing a seizure  & 2016 \\
+Thodorof, Pineau, Lim& $[$27$]$ - recurrent convolutional architecture designed to capture spectral, temporal and spatial patterns representing a seizure  & 2016 \\
 
-Diyuan Lu, Jochen Triesch& $[$27$]$ - Image classification and object recognition methods based on convolutional neural networks  & 2019 \\
+Diyuan Lu, Jochen Triesch& $[$28$]$ - Image classification and object recognition methods based on convolutional neural networks  & 2019 \\
 
 
 
@@ -279,7 +281,6 @@ The model was trained with two datasets, one with patients who had a brain tumor
 \paragraph{}
 On the UCI dataset,a three-class classification task was performed. The first group, group A, was comprised of  2300 samples of healthy recordings. The second, group B, was a set of 2300 samples of brain tumor activity recording, The same approach was implemented for epilepsy,  where a set of recordings with epileptic seizures, group  C. Then two datasets were created, A + B for brain tumor classification and A + C for epileptic seizure classification. Both datasets were shuffled and the data was normalized. For each dataset 80\% was taken for training and the remaining 20\% for validation. 
 
-\paragraph{}
 
 \begin{table}[h!]
 \begin{tabular}{ |p{3cm}||p{2cm}|p{2cm}|p{2cm}|p{1.5cm}|  }
@@ -297,13 +298,13 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 \end{table}
 
 
-
+\paragraph{}\paragraph{}
+\paragraph{}\paragraph{}
 \begin{figure}[h]
 \centering
 \includegraphics[width=12.08cm,height=5.11cm]{media/results.eps}
 \caption{ Error using 1 layer and 5 layers fully connected Neural Networks trained through 1000 epochs. 1 layer error:  0.175971;  5 layers error:  0.012657}
 \end{figure}
-
 
 
 \begin{figure}[h]
@@ -314,7 +315,6 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 
 
 
- 
 
 \paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
@@ -430,13 +430,15 @@ analysis and topographic mapping
 $[$24$]$ A.F. Rabbi, R. Fazel-Rezai - A fuzzy logic system for seizure 
 onset detection in intracranial EEG
 
-$[$25$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection - https://arxiv.org/pdf/1608.00220.pdf
+$[$25$]$ Sharanreddy, Kulkarni - Automated EEG signal analysis for identification of epilepsy seizures and brain tumour   2015 
 
-$[$26$]$ Diyuan Lu, Jochen Triesch - Residual Deep Convolutional Neural Network for
-EEG Signal Classification in Epilepsy - https://arxiv.org/pdf/1903.08100.pdf
-
-$[$27$]$ Krisztian Buza, Júlia Koller - Classification of Electroencephalograph Data,
+$[$26$]$ Krisztian Buza, Júlia Koller - Classification of Electroencephalograph Data,
 A Hubness-aware Approach - https://www.uni-obuda.hu/journal/Buza\_Koller\_66.pdf
+
+$[$27$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection - https://arxiv.org/pdf/1608.00220.pdf
+
+$[$28$]$ Diyuan Lu, Jochen Triesch - Residual Deep Convolutional Neural Network for
+EEG Signal Classification in Epilepsy - https://arxiv.org/pdf/1903.08100.pdf
 
 $[$50$]$ "source code" - https://github.com/gmaggiotti/brain-disorders-prediction
 
