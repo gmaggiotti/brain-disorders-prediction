@@ -112,6 +112,10 @@ The following are the most relevant works on the subject .
  Author     & & \\
  \hline
  Webber &  $[$5$]$ - ANN classification system SEN of 76\% and FPR of 1 event/h &1996 \\
+ A.H. Shoeb &  $[$3$]$ -  Application of Machine Learning to Epileptic Seizure Onset and
+Treatment&2009 \\
+ Yuan, Zhou, Li, Cai &  $[$4$]$ - Epileptic EEG classification based on extreme learning machine and nonlinear features &2011 \\
+
  Liu&  $[$22$]$ - Wavelet decomposition-based feature extraction  and by SVM  SEN of 94.5\% and SPEC of 95.3\% & 2012 \\
 Direito& $[$23$]$ - Markov modeling classification system. Identified four states - accuracy of 89.3\% & 2012 \\
 Rabbi& $[$24$]$ - Used fuzzy algorithms for feature extraction for classification SEN of 95.8\%  & 2012 \\
@@ -122,6 +126,8 @@ Krisztian Buza, Júlia Kollerh& $[$26$]$ - Classification of Electroencephalogra
 A Hubness-aware Approach  & 2016 \\
 
 Thodorof, Pineau, Lim& $[$27$]$ - recurrent convolutional architecture designed to capture spectral, temporal and spatial patterns representing a seizure  & 2016 \\
+
+Ullah, Hussain, Qazi, Aboalsamh, & $[$28$]$ -  system based on deep learning, which is an ensemble of pyramidal one-dimensional convolutional neural network (  & 2018 \\
 
 Diyuan Lu, Jochen Triesch& $[$28$]$ - Image classification and object recognition methods based on convolutional neural networks  & 2019 \\
 
@@ -271,6 +277,8 @@ As a regularization procedure for avoiding overfitting, a dropout approach was e
 \caption{ Training process}
 \end{figure}
 
+\paragraph{}\paragraph{}
+
 \paragraph{}
 \section{Results}
 \label{sec:4}
@@ -281,6 +289,7 @@ The model was trained with two datasets, one with patients who had a brain tumor
 \paragraph{}
 On the UCI dataset,a three-class classification task was performed. The first group, group A, was comprised of  2300 samples of healthy recordings. The second, group B, was a set of 2300 samples of brain tumor activity recording, The same approach was implemented for epilepsy,  where a set of recordings with epileptic seizures, group  C. Then two datasets were created, A + B for brain tumor classification and A + C for epileptic seizure classification. Both datasets were shuffled and the data was normalized. For each dataset 80\% was taken for training and the remaining 20\% for validation. 
 
+\paragraph{}\paragraph{}
 
 \begin{table}[h!]
 \begin{tabular}{ |p{3cm}||p{2cm}|p{2cm}|p{2cm}|p{1.5cm}|  }
@@ -298,8 +307,7 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 \end{table}
 
 
-\paragraph{}\paragraph{}
-\paragraph{}\paragraph{}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=12.08cm,height=5.11cm]{media/results.eps}
@@ -316,7 +324,6 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 
 
 
-\paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
 \paragraph{}\paragraph{}
@@ -350,6 +357,7 @@ Another area of interest would be Electrocardiogram signals. Further works can a
 
 
 $[$1$]$ - \underline{https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition}
+
 $[$2$]$ - Andrzejak RG, Lehnertz K, Rieke C, Mormann F, David P, Elger 
 CE (2001) Indications of nonlinear deterministic and finite dimensional 
 structures in time series of brain electrical activity: Dependence on 
@@ -358,67 +366,10 @@ recording region and brain state, Phys. Rev. E, 64, 061907
 $[$3$]$ - A.H. Shoeb, Application of Machine Learning to Epileptic 
 Seizure Onset and Treatment, 2009.
 
-$[$4$]$ - 
-https://www.sciencedirect.com/science/article/pii/S1525505014002297
+$[$4$]$ Yuan, Zhou, Li, Cai- Epileptic EEG classification based on extreme learning machine and nonlinear features, 2011
 
 $[$5$]$ W.R. Webber, R.P. Lesser, R.T. Richardson, K. Wilson - An 
 approach to seizure detection using an artificial neural network (ANN)
-
-$[$6$]$ N. Pradhan, P.K. Sadasivan, G.R. Arunodaya - Detection of 
-seizure activity in EEG by an artificial neural network: a preliminary 
-study
-
-$[$7$]$ A.J. Gabor -Seizure detection using a self-organizing neural 
-network: validation and comparison with other detection strategies
-
-$[$8$]$ S.B. Wilson, M.L. Scheuer, R.G. Emerson, A.J. Gabor - Seizure 
-detection: evaluation of the Reveal algorithm
-
-$[$9$]$ S.B. Wilson - A neural network method for automatic and 
-incremental learning applied to patient-dependent seizure detection
-
-$[$10$]$ M. D'Alessandro, G. Vachtsevanos, R. Esteller, J. Echauz, S. 
-Cranstoun, G. Worrell, et al. - A multi-feature and multi-channel 
-univariate selection process for seizure prediction
-
-$[$11$]$ A. Aarabi, F. Wallois, R. Grebe - Automated neonatal seizure 
-detection: a multistage classification system through feature selection 
-based on relevance and redundancy analysis
-
-$[$12$]$ A.M. Chan, F.T. Sun, E.H. Boto, B.M. Wingeier - Automated 
-seizure onset detection for accurate onset time determination in 
-intracranial EEG
-
-$[$13$]$ T. Netoff, Y. Park, K. Parhi - Seizure prediction using 
-cost-sensitive support vector machine
-
-$[$14$]$ K.C. Chua, V. Chandran, U.R. Acharya, C.M. Lim - Automatic 
-identification of epileptic electroencephalography signals using 
-higher-order spectra
-
-$[$15$]$ P. Mirowski, D. Madhavan, Y. Lecun, R. Kuzniecky - 
-Classification of patterns of EEG synchronization for seizure prediction
-
-$[$16$]$ T.L. Sorensen, U.L. Olsen, I. Conradsen, J. Henriksen, T.W. 
-Kjaer, C.E. Thomsen, et al. - Automatic epileptic seizure onset 
-detection using matching pursuit: a case study
-
-$[$17$]$ L. Chisci, A. Mavino, G. Perferi, M. Sciandrone, C. Anile, G. 
-Colicchio, et al. - Real-time epileptic seizure prediction using AR 
-models and support vector machines
-
-$[$18$]$ E.B. Petersen, J. Duun-Henriksen, A. Mazzaretto, T.W. Kjaer, 
-C.E. Thomsen, H.B. Sorensen - Generic single-channel detection of 
-absence seizures
-
-$[$19$]$ A. Temko, E. Thomas, W. Marnane, G. Lightbody, G. Boylan - 
-EEG-based neonatal seizure detection with Support Vector Machines
-
-$[$20$]$ U.R. Acharya, S.V. Sree, J.S. Suri - Automatic detection of 
-epileptic EEG signals using higher order cumulant features
-
-$[$21$]$ A. Kharbouch, A. Shoeb, J. Guttag, S.S. Cash - An algorithm for 
-seizure onset detection using intracranial EEG
 
 $[$22$]$ Y. Liu, W. Zhou, Q. Yuan, S. Chen - Automatic seizure detection 
 using wavelet transform and SVM in long-term intracranial EEG
@@ -437,8 +388,10 @@ A Hubness-aware Approach - https://www.uni-obuda.hu/journal/Buza\_Koller\_66.pdf
 
 $[$27$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection - https://arxiv.org/pdf/1608.00220.pdf
 
-$[$28$]$ Diyuan Lu, Jochen Triesch - Residual Deep Convolutional Neural Network for
-EEG Signal Classification in Epilepsy - https://arxiv.org/pdf/1903.08100.pdf
+$[$27$]$ Pierre Thodorof, Joelle Pineau, Andrew Lim - Learning Robust Features using Deep Learning for Automatic Seizure Detection - https://arxiv.org/pdf/1608.00220.pdf
+
+$[$28$]$ Ihsan Ullah, Muhammad Hussain, Emad-ul-Haq Qaziand Hatim Aboalsamh - An Automated System for Epilepsy Detection using EEG Brain Signals
+based on Deep Learning Approach - https://arxiv.org/pdf/1801.05412.pdf
 
 $[$50$]$ "source code" - https://github.com/gmaggiotti/brain-disorders-prediction
 
