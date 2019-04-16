@@ -151,7 +151,7 @@ Diyuan Lu, Jochen Triesch& $[$13$]$ - Image classification and object recognitio
 
 Dataset used was taken from The University of California Irvine (UCI) [1][2].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds and sampling rate of the data was 173.61 Hz. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1 for seizure activity; class (2 for abnormal tumor activity and class (5 for patients without seizures.  
 \paragraph{}
-Finally, two dataset were constructed.   For epileptic seizures samples of classes 1 and 5 were used (4600 samples).  And for brain tumor activity classes 2 and 5 were used with the same number of samples.  
+Finally, two dataset were constructed.  For epileptic seizures, samples of classes 1 and 5 were used (4600 samples).  And for brain tumor activity classes 2 and 5 were used with the same number of samples.  
    
 \paragraph{}
 
@@ -194,10 +194,10 @@ Lastly, the dataset was further split into training and validation sets. It is v
 Deep learning algorithms are composed of multiple processing layers that learn data representations with multiple levels of abstraction[15]. Using a deep neural networks (DNN) implemented in Python (TensorFlow library), to classify the subjects based on each label.  Design a fully connected Neural Network to capture the nonlinearity of the signals.
  
 \paragraph{}
-The proposed architecture consists of five layers of fully connected neural networks (Fig. 3), an Adam optimizer[17] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients.  A reference to the project and code can be found at [14]. 
+The proposed architecture consists of five layers of fully connected neural networks (Fig. 3), an Adam optimizer[17] was used because it is an efficient extension of stochastic gradient descent optimizers. The Adam optimizer achieves good results faster than other approaches and is used for objective function minimization by iteration. It computes individual adaptive learning rates from estimates of the first and second moments of the gradients. 
 
 \paragraph{}
-Parameter initialization included assigning random values between 0 and 1 to the weights Eq.(4) and zero values to the biases. Also, Xavier initialization [16] was applied to the weights following Eq.(5) to make the variance to remain the same as we pass through each layer and preserve the back propagated signal as well.  This helpes to reach the minimum of the cost function faster and more efficiently: 
+Parameter initialization included assigning random values between 0 and 1 to the weights Eq.(4) and zero values to the biases. Also, Xavier initialization [16] was applied to the weights following Eq.(5) to make the variance to remain the same as we pass through each layer and preserve the back propagated signal as well.  This helps to reach the minimum of the cost function faster and more efficiently: 
 
 \begin{equation} 
 \theta\Rightarrow\theta=\{W_{0},W_{1},W_{2}...,W_{L}\}
@@ -271,7 +271,7 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 
 \paragraph{}
 \paragraph{}
-As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layer with a keep probability of 0.5[60]. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
+As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layer with a keep probability of 0.5[18]. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
 \paragraph{}
 
 \begin{figure}[h]
@@ -280,6 +280,7 @@ As a regularization procedure for avoiding overfitting, a dropout approach was e
 \caption{ Training process}
 \end{figure}
 
+ A reference to the project and code can be found at [14]. 
 \paragraph{}\paragraph{}
 
 \paragraph{}
@@ -405,6 +406,7 @@ $[$16$]$ Glorot, Xavier and Bengio, Yoshua. (2010) Understanding the difficulty 
 
 $[$17$]$ Diederik P. Kingma, Jimmy Lei Ba. (2017) ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION - https://arxiv.org/pdf/1412.6980.pdf
 
+$[$18$]$ Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov(2014) Dropout: A Simple Way to Prevent Neural Networks from Overfitting
 
 \end{thebibliography}
 
