@@ -97,7 +97,7 @@ This anomalous brain activity generates an observable mark or pattern. That foot
 \section{Related work on the subject}
 \label{sec:1}
 
- In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifiers used were support vector machine (SVM) and K Near Neighborhoods (KNN) for datasets like CHB-MIT and UCI database. 
+ In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifiers used were support vector machine (SVM), K Near Neighborhoods (KNN) and Wavelet for datasets like CHB-MIT and UCI database. 
 
 In the recent years more work has been done using neural networks and deep learning models.  Most of these new works present a much better results regardless dataset been used.
 
@@ -271,7 +271,7 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 
 \paragraph{}
 \paragraph{}
-As a regularization procedure for avoiding overfitting, a dropout approach was employed in the fourth hidden layer with a keep probability of 0.5[18]. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
+As a regularization procedure for avoiding overfitting, a dropout[18] approach was employed in the fourth hidden layer with a keep probability of 0.5. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
 \paragraph{}
 
 \begin{figure}[h]
