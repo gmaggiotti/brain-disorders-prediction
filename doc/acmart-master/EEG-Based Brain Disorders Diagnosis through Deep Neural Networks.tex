@@ -22,7 +22,7 @@
 %% in the same archive or directory.)
 %%
 %% The first command in your LaTeX source must be the \documentclass command.
-\documentclass[sigchi]{acmart}
+\documentclass[sigconf]{acmart}
 
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
@@ -85,7 +85,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
-In most cases, the diagnosis of brain disorders such as epilepsy or a brain tumor is slow and requires endless visits to doctors and electroencephalogram (EEG) technicians. This project aims to automate brain disorder diagnosis by using Artificial Intelligence and deep learning. There are many brain disorders  can be detected by reading an Electroencephalography. Using an EEG device and collecting the electrical signals directly from the brain with a noninvasive procedure gives significant information about its health. Classifying and detecting anomalies on these signals is what doctors currently do when reading an Electroencephalography. With the right amount of data and the use of machine learning models, it could be possible to learn and classify these signals into groups like (i.e: anxiety, epilepsy spikes, abnormal tumor activity, etc). Subsequently, a trained Neural Network would interpret those signals and identify evidence of a disorder to automate the detection and classification of those disorders found. Results are promising, with classification accuracy of 99.69\% for epilepsy and 85.04\% for brain tumor.
+In most cases, the diagnosis of brain disorders such as epilepsy or a brain tumor is slow and requires endless visits to doctors and electroencephalogram (EEG) technicians. This project aims to automate brain disorder diagnosis by using Artificial Intelligence and deep learning. Many brain disorders can be detected can be detected by reading an Electroencephalography. Using an EEG device and collecting the electrical signals directly from the brain with a noninvasive procedure gives significant information about its health. Classifying and detecting anomalies on these signals is what doctors currently do when reading an Electroencephalography. With the right amount of data and the use of machine learning models, it could be possible to learn and classify these signals into groups like anxiety, epilepsy spikes, abnormal tumor activity, etc. Subsequently, a trained Neural Network would interpret those signals and identify evidence of a disorder to automate the detection and classification of those disorders found. Results are promising, with classification accuracy of 99.69\% for epilepsy and 85.04\% for brain tumor.
 \end{abstract}
 
 %%
@@ -95,6 +95,7 @@ In most cases, the diagnosis of brain disorders such as epilepsy or a brain tumo
 
 
 \ccsdesc[500]{Information Systems~• Life and medical sciences}
+
 
 
 %%
@@ -111,7 +112,7 @@ In most cases, the diagnosis of brain disorders such as epilepsy or a brain tumo
 \section{Introduction}
 This paper explores the use of a supervised machine learning approach to automate the detection of specific disorders on the brain by reading the EEG signals. Primarily, it focuses on Epilepsy and abnormal tumor activities.  Further research could extrapolate this approach to other brain conditions.
 
-Epilepsy is a chronic disorder caused by an imbalance in the electrical activity of neurons in one or several areas of the brain. In most epilepsies, an anomaly in electrical activity can be observed through EEG by registering spikes in the affected areas.  These spikes have a unique pattern that can be seen with the naked eye on an electroencephalogram (spikes or peaks are registered with some frequency associated in the amplitudes of the electrical signals recorded).  Also brain tumors presents a unique pattern in the affected area that can be observed by an EEG.
+Epilepsy is a chronic disorder caused by an imbalance in the electrical activity of neurons in one or several areas of the brain. In most epilepsies, an anomaly in electrical activity can be observed through EEG by registering spikes in the affected areas.  These spikes have a unique pattern that can be seen with the naked eye on an electroencephalogram (spikes or peaks are registered with some frequency associated in the amplitudes of the electrical signals recorded).  Also brain tumors present a unique pattern in the affected area that can be observed by an EEG.
 
 These marks are indicators of the presence of the disorder. Patients carry this pattern of spikes almost all the time. Seizures or epileptic seizures are events of short duration, being the spikes the catalysts thereof.
 
@@ -127,16 +128,16 @@ This anomalous brain activity generates an observable mark or pattern. That foot
 
 
 \section{Related work on the subject}
- In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifiers used were support vector machine (SVM), K Near Neighborhoods (KNN) and Wavelet for datasets like CHB-MIT and UCI database. 
+ In the past, similar studies have been conducted using EEG datasets to analyze and make predictions on epilectic seizures and brain tumor related activity. The most common classifiers used were support vector machine (SVM), K Nearest Neighbors (KNN) and Wavelet for datasets like CHB-MIT and UCI database [1][2][8][9][10]. 
 
-In the recent years more work has been done using neural networks and deep learning models.  Most of these new works present a much better results regardless dataset been used.
+In recent years more work has been done using neural networks and deep learning models.  Most these new works present much better results regardless of the dataset being used.
 
 
 
 
 \section{Methodology: Dataset Processing}
 
-Dataset used was taken from The University of California Irvine (UCI) [1][2].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds and sampling rate of the data was 173.61 Hz. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1 for seizure activity; class (2 for abnormal tumor activity and class (5 for patients without seizures.  
+Dataset used was taken from The University of California Irvine (UCI) [1][2].  UCI contains an Epileptic Seizure Data Set supported by 11500 measurements from a total of 500 individuals with each has 4097 data points for 23.5 seconds and sampling rate of the data was 173.61 Hz. Then divided and shuffled every 4097 data points into 23 chunks, each chunk contains 178 data points for 1 second, and each data point is the value of the EEG recording at a different point in time. So now we have 23 x 500 = 11500 pieces of information(rows), each information contains 178 data points for 1 second(columns), the last column represents the labels.  The dataset contains five different classes of 2300 samples each. Labels 1,2 and 5 were used respectively: class (1) for seizure activity; class (2) for abnormal tumor activity and class (5) for patients without seizures.  
 
 Finally, two dataset were constructed.  For epileptic seizures, samples of classes 1 and 5 were used (4600 samples).  And for brain tumor activity classes 2 and 5 were used with the same number of samples.  
    
@@ -202,7 +203,7 @@ The nonlinear sigmoid function Eq.(7) was applied as the activation function of 
 \begin{figure}[h]
 \centering
 \includegraphics[width=8.51cm,height=3.77cm]{media/deep-nn1.eps}
-\caption{Architecture for a four five fully connected 
+\caption{Architecture for a five fully connected 
 Neural Network}
 \end{figure}
 
@@ -254,7 +255,6 @@ Error = \frac{1}{2}\sum_i^n( y -\widehat{y})^2
 
 
 As a regularization procedure for avoiding overfitting, a dropout[7] approach was employed in the fourth hidden layer with a keep probability of 0.5. The optimization procedure was iterated until the minimum error on the training set and the maximum accuracy on the validation set (the number of observations that were correctly classified) were reached (Fig. 4). 
-\paragraph{}
 
 \begin{figure}[h]
 \centering
@@ -296,14 +296,14 @@ On the UCI dataset,a three-class classification task was performed. The first gr
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=8.5cm,height=3.11cm]{media/results.eps}
+\includegraphics[width=9.0cm,height=4.11cm]{media/results.eps}
 \caption{ Error and Accuracy during the training process for the epilepsy dataset.}
 \end{figure}
 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=8.5cm,height=3.11cm]{media/results2.eps}
+\includegraphics[width=9.0cm,height=4.11cm]{media/results2.eps}
 \caption{ Error and Accuracy during the training process for the abnormal tumor activity dataset}
 \end{figure}
 
