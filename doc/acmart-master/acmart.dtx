@@ -100,6 +100,7 @@
 %  I am grateful to
 %  Michael D.~Adams,
 %  Leif Andersen,
+%  Lawrence Christopher Angrave,
 %  Dirk Beyer,
 %  Joachim Breitner,
 %  Benjamin Byholm,
@@ -110,6 +111,8 @@
 %  Ben Greenman,
 %  Enrico Gregorio,
 %  Jamie Davis,
+%  Peter Kemp,
+%  Kerry A. Seitz, Jr.,
 %  Luis Leiva,
 %  Ben Liblit,
 %  Rholais Lii,
@@ -130,6 +133,7 @@
 %  David Shamma,
 %  Gabriel Scherer,
 %  Stephen Spencer,
+%  Shin Hwei Tan,
 %  Daniel Thomas,
 %  Zack Weinberg,
 %  John Wickerson
@@ -285,17 +289,17 @@
 %     \normalfont Value & Meaning\\
 %     \midrule
 %   manuscript & A manuscript. This is the default. \\
-%   acmsmall & Small single-column format.  Used for CIE, CSUR, DTRAP,
-%            HEALTH, JACM, JDIQ, JEA, JERIC,
+%   acmsmall & Small single-column format.  Used for CIE, CSUR, 
+%            JACM, JDIQ, JEA, JERIC,
 %            JETC, PACMCGIT, PACMHCI, PACMPL, TAAS, TACCESS, TACO,
 %            TALG, TALLIP (formerly TALIP), TCPS, TDS,
-%            TEAC, TECS, THRI, TIIS, TIOT, TISSEC, TIST, TKDD, TMIS,
+%            TEAC, TECS, TELO, THRI, TIIS, TIOT, TISSEC, TIST, TKDD, TMIS,
 %            TOCE, TOCHI, TOCL,
 %            TOCS, TOCT, TODAES, TODS, TOIS, TOIT, TOMACS, TOMM (formerly
 %            TOMCCAP), TOMPECS, TOMS, TOPC, TOPLAS, TOPS,
-%            TOS, TOSEM, TOSN, TRETS,
+%            TOS, TOSEM, TOSN, TQC, TRETS,
 %            TSAS, TSC, TSLP and TWEB, including special issues. \\
-%   acmlarge  & Large single-column format.  Used for
+%   acmlarge  & Large single-column format.  Used for DTRAP, HEALTH,
 %           IMWUT, JOCCH, POMACS and TAP, including special issues. \\
 %   acmtog   & Large double-column format.  Used for
 %          TOG, including annual conference Technical Papers.\\
@@ -353,7 +357,12 @@
 % The option |balance| determines whether the last page in the two
 % column mode has balanced columns.  By default it is |true|; however,
 % it may lead to problems for some documents.  Set it to |false| if
-% you encounter compilation errors.
+% you encounter compilation errors.  Note that for one page documents
+% \cs{balance} command might cause problems.
+%
+% The option |urlbreakonhyphens| determines whether URLs can be split
+% between lines after hyphens.  By default it is true.  Set it to
+% |false| to disallow these breaks.
 %
 % \begin{table}
 %   \centering
@@ -382,7 +391,8 @@
 %     acmthm & true & Whether to define theorem-like environments, see
 %                       Section~\ref{sec:ug_theorems}\\
 %     balance & true & Whether to balance the last page in two column
-%     mode\\ 
+%                        mode\\
+%     urlbreakonhyphens & true & Whether to break urls on hyphens\\ 
 %     \bottomrule
 %   \end{tabularx}
 % \end{table}
@@ -516,7 +526,7 @@
 % their e-mails in one command leads to a warning or an error.  This
 % is not a bug, but the expected behavior.
 %
-% Note that some formats do not typset e-mails or ORCID identifiers.
+% Note that some formats do not typeset e-mails or ORCID identifiers.
 % Do not worry: the metadata tools will get them.
 %
 % Sometimes an author has several affiliations.  In this case, the
@@ -945,7 +955,8 @@
 % \verb|\setcopyright{...}| is introduced.  Its argument is the
 % copyright status of the paper, for example,
 % \verb|\setcopyright{acmcopyright}|.  The possible values for this
-% command are listed in Table~\ref{tab:setcopyright}.
+% command are listed in Table~\ref{tab:setcopyright}.  This command
+% must be placed in the preamble, before |\begin{document}|.  
 %
 % \begin{table}
 %   \centering
@@ -1017,6 +1028,7 @@
 % \DescribeEnv{abstract}%
 % The environment |abstract| must \emph{precede} the \cs{maketitle}
 % command.  Again, this is different from the standard \LaTeX.
+% Putting |abstract| after \cs{maketitle} will trigger an error.
 %
 %
 % \DescribeEnv{teaserfigure}%
@@ -1272,7 +1284,7 @@
 % not in the printed version.  The text inside the environment
 % |screenonly| will be typeset only when the option |screen| (see
 % Section~\ref{sec:invocation}) is set to |true|.  Conversely, the
-% text inside the environment |printonly| is typset only when this
+% text inside the environment |printonly| is typeset only when this
 % option is set to |false|.  For example,
 % \begin{verbatim}
 % \section{Supplementary materials}
@@ -1435,8 +1447,8 @@
 % \end{verbatim}
 % See the examples at \url{http://arxiv.org/hypertex/bibstyles/}.
 %
-% There are the special entry types \path{online} and
-% \path{game} for Web pages and games, for example,
+% There are several  special entry types. Types \path{online} and
+% \path{game} are used for Web pages and games, for example,
 % \begin{verbatim}
 % @online{Thornburg01,
 %  author =       "Harry Thornburg",
@@ -1447,8 +1459,33 @@
 %  lastaccessed = "March 2, 2005",
 % }
 % \end{verbatim}
+% Entry types \path{artifactsoftware}, \path{artifactdataset} 
+% (with synonyms \path{software} and \path{dataset}) can be used to
+% cite software artifacts and datasets, for example,
+% \begin{verbatim}
+% @ArtifactSoftware{R,
+%    title = {R: A Language and Environment for Statistical Computing},
+%    author = {{R Core Team}},
+%    organization = {R Foundation for Statistical Computing},
+%    address = {Vienna, Austria},
+%    year = {2019},
+%    url = {https://www.R-project.org/},
+%}
+% @ArtifactDataset{UMassCitations,
+%  author    =  {Sam Anzaroot and Andrew McCallum},
+%  title     =  {{UMass} Citation Field Extraction Dataset},
+%  year      = 2013,
+%  url       =
+%     {http://www.iesl.cs.umass.edu/data/data-umasscitationfield},
+%  lastaccessed = {May 27, 2019}
+% }
+% \end{verbatim}
+% 
+%
 % For these entry types you can use the \path{lastaccessed} field to add
 % the access date for the URL.
+% 
+%
 %
 % There are two ways to enter video or audio sources in the
 % bibliograpy corresponding to two different possibilies.  For
@@ -1630,7 +1667,7 @@
 % warning.
 %
 % You cannot change \cs{baselinestretch} in your document: this
-% produces an erorr.
+% produces an error.
 %
 % You should not abuse the command \cs{vspace}:  this command may
 % disturb the typesetting of ACM papers.
@@ -1700,6 +1737,7 @@
 % \endfoot
 %     CIE & ACM Computers in Entertainment \\
 %     CSUR & ACM Computing Surveys\\
+%     DGOV & Digital Government: Research and Practice \\
 %     DTRAP &  Digital Threats: Research and Practice\\
 %     HEALTH & ACM Transactions on Computing for Healthcare\\
 %     IMWUT & PACM on Interactive, Mobile, Wearable and Ubiquitous
@@ -1726,6 +1764,7 @@
 %     TDS & ACM Transactions on Data Science\\
 %     TEAC & ACM Transactions on Economics and Computation\\
 %     TECS & ACM Transactions on Embedded Computing Systems \\
+%     TELO & ACM Transactions on Evolutionary Learning \\
 %     THRI & ACM Transactions on Human-Robot Interaction\\
 %     TIIS & ACM Transactions on Interactive Intelligent Systems\\
 %     TIOT & ACM Transactions on Internet of Things \\
@@ -1755,6 +1794,7 @@
 %     TOS & ACM Transactions on Storage\\
 %     TOSEM & ACM Transactions on Software Engineering and Methodology\\
 %     TOSN & ACM Transactions on Sensor Networks\\
+%     TQC & ACM Transactions on Quantum Computing\\
 %     TRETS & ACM Transactions on Reconfigurable Technology and Systems\\
 %     TSAS & ACM Transactions on Spatial Algorithms and Systems\\
 %     TSC & ACM Transactions on Social Computing\\
@@ -1762,6 +1802,10 @@
 %     TWEB & ACM Transactions on the Web\\
 % \end{longtable}
 %\egroup
+%
+% Besides the publications listed in Table~\ref{tab:pubs}, there is a
+% special ``publication'' type FACMP, a forthcoming ACM publication,
+% reserved for new journals which are not assigned an ISSN yet.  
 %
 % \StopEventually{
 % \clearpage
@@ -1786,8 +1830,7 @@
 \ProvidesFile{acmart.dtx}
 %</gobble>
 %<class>\ProvidesClass{acmart}
-[2019/03/29 v1.59 Typesetting articles for the Association for
-Computing Machinery]
+[2019/10/19 v1.65 Typesetting articles for the Association for Computing Machinery]
 %    \end{macrocode}
 %
 % \changes{v1.00}{2016/04/14}{First released version}
@@ -1875,6 +1918,14 @@ Computing Machinery]
 % \changes{1.58}{2019/02/09}{Changes in samples (Enrico Gregorio)}
 % \changes{1.58}{2019/03/29}{New journal: HEALTH.  TDS is renamed to
 % TDSCI} 
+% \changes{1.60}{2019/04/22}{New option: urlbreakonhyphens}
+% \changes{1.62}{2019/07/31}{New journal: TELO}
+% \changes{1.63}{2019/08/04}{New journal: TQUANT}
+% \changes{1.63}{2019/08/04}{New journal: FACMP} 
+% \changes{1.63a}{2019/08/05}{Move: TQUANT to TQC}
+% \changes{1.64}{2019/08/17}{Putting abstract after \cs{maketitle} now
+% causes an error}
+% \changes{1.65}{2019/10/19}{New journal: DGOV} 
 %
 % And the driver code:
 %    \begin{macrocode}
@@ -1963,6 +2014,20 @@ Computing Machinery]
 \ExecuteOptionsX{screen=false}
 %    \end{macrocode}
 %
+% \end{macro}
+%
+% \begin{macro}{\if@ACM@urlbreakonhyphens}
+% \changes{1.60}{2019/04/22}{introduced macro} 
+%    \begin{macrocode}
+\define@boolkey+{acmart.cls}[@ACM@]{urlbreakonhyphens}[true]{%
+  \if@ACM@urlbreakonhyphens
+    \PackageInfo{\@classname}{Using breaking urls on hyphens}%
+  \else
+    \PackageInfo{\@classname}{Not breaking urls on hyphens}%
+  \fi}{\PackageError{\@classname}{The option urlbreakonhyphens can be either true or
+    false}}
+\ExecuteOptionsX{urlbreakonhyphens=true}
+%    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@ACM@acmthm}
@@ -2684,6 +2749,9 @@ Computing Machinery]
   \urlstyle{sf}
 \fi
 \AtEndPreamble{%
+  \if@ACM@urlbreakonhyphens
+    \def\do@url@hyp{\do\-}%
+  \fi
   \if@ACM@screen
     \hypersetup{colorlinks,
       linkcolor=ACMPurple,
@@ -3404,6 +3472,16 @@ Computing Machinery]
 %\subsection{Top-matter data}
 %\label{sec:top_matter_data}
 %
+% \begin{macro}{\if@ACM@maketitle@typeset}
+% \changes{v1.64}{2019/08/17}{Introduced macro}
+% The switch to check whether \cs{maketitle} is already typeset.  It
+% is initally false, and setting top matter when it is true is wrong.
+%    \begin{macrocode}
+\newif\if@ACM@maketitle@typeset
+\@ACM@maketitle@typesetfalse
+%    \end{macrocode}
+% 
+% \end{macro}
 %
 % \changes{v1.24}{2016/11/16}{Add IMWUT journal option}
 % \changes{v1.25}{2016/12/03}{Updated PACMPL}
@@ -3419,6 +3497,7 @@ Computing Machinery]
 \define@choicekey*+{ACM}{acmJournal}[\@journalCode\@journalCode@nr]{%
   CIE,%
   CSUR,%
+  DGOV,%
   DTRAP,%
   HEALTH,%
   IMWUT,%
@@ -3442,6 +3521,7 @@ Computing Machinery]
   TDS,%
   TEAC,%
   TECS,%
+  TELO,%
   THRI,%
   TIIS,%
   TIOT,%
@@ -3469,11 +3549,13 @@ Computing Machinery]
   TOS,%
   TOSEM,%
   TOSN,%
+  TQC,%
   TRETS,%
   TSAS,%
   TSC,%
   TSLP,%
-  TWEB%
+  TWEB,%
+  FACMP%
 }{%
 \ifcase\@journalCode@nr
 \relax % CIE
@@ -3484,6 +3566,10 @@ Computing Machinery]
   \def\@journalName{ACM Computing Surveys}%
   \def\@journalNameShort{ACM Comput. Surv.}%
   \def\@permissionCodeOne{0360-0300}%
+\or % DGOV
+  \def\@journalName{Digital Government: Research and Practice}%
+  \def\@journalNameShort{Digit. Gov. Res. Pract.}%
+  \def\@permissionCodeOne{2639-0175}%
 \or % DTRAP
   \def\@journalName{Digital Threats: Research and Practice}%
   \def\@journalNameShort{Digit. Threat. Res. Pract.}%
@@ -3579,6 +3665,10 @@ Computing Machinery]
   \def\@journalName{ACM Transactions on Embedded Computing Systems}%
   \def\@journalNameShort{ACM Trans. Embedd. Comput. Syst.}%
   \def\@permissionCodeOne{1539-9087}%
+\or % TELO
+  \def\@journalName{ACM Transactions on Evolutionary Learning}%
+  \def\@journalNameShort{ACM Trans. Evol. Learn.}%
+  \def\@permissionCodeOne{2688-3007}%
 \or % THRI
   \def\@journalName{ACM Transactions on Human-Robot Interaction}%
   \def\@journalNameShort{ACM Trans. Hum.-Robot Interact.}%
@@ -3686,6 +3776,10 @@ Computing Machinery]
   \def\@journalName{ACM Transactions on Sensor Networks}%
   \def\@journalNameShort{ACM Trans. Sensor Netw.}%
   \def\@permissionCodeOne{1550-4859}%
+\or % TQC
+  \def\@journalName{ACM Transactions on Quantum Computing}%
+  \def\@journalNameShort{ACM Trans. Quantum Comput.}%
+  \def\@permissionCodeOne{2643-6817}%
 \or % TRETS
   \def\@journalName{ACM Transactions on Reconfigurable Technology and Systems}%
   \def\@journalNameShort{ACM Trans. Reconfig. Technol. Syst.}%
@@ -3706,6 +3800,10 @@ Computing Machinery]
   \def\@journalName{ACM Transactions on the Web}%
   \def\@journalNameShort{ACM Trans. Web}%
   \def\@permissionCodeOne{1559-1131}%
+\else % FACMP, a dummy journal
+  \def\@journalName{Forthcoming ACM Publication}%
+  \def\@journalNameShort{ACM Forthcoming}%
+  \def\@permissionCodeOne{XXXX-XXXX}%
 \fi
 \ClassInfo{\@classname}{Using journal code \@journalCode}%
 }{%
@@ -4190,7 +4288,8 @@ Computing Machinery]
 % \changes{v1.04}{2016/04/26}{Name change by Matthew Fluet}
 %   The paper DOI
 %    \begin{macrocode}
-
+\def\acmDOI#1{\def\@acmDOI{#1}}
+\acmDOI{10.1145/nnnnnnn.nnnnnnn}
 %    \end{macrocode}
 %
 % \end{macro}
@@ -4307,7 +4406,10 @@ Computing Machinery]
 % \begin{macro}{\@saveabstract}
 %   And saving the abstract
 %    \begin{macrocode}
-\long\def\@saveabstract#1{\long\gdef\@abstract{#1}}
+\long\def\@saveabstract#1{\if@ACM@maketitle@typeset
+  \ClassError{\@classname}{Abstract must be defined before maketitle
+    command. Please move it!}\fi
+  \long\gdef\@abstract{#1}}
 \@saveabstract{}
 %    \end{macrocode}
 %
@@ -4679,11 +4781,35 @@ Computing Machinery]
 \def\@copyrightpermission{%
   \ifcase\acm@copyrightmode\relax % none
   \or % acmcopyright
-
+   Permission to make digital or hard copies of all or part of this
+   work for personal or classroom use is granted without fee provided
+   that copies are not made or distributed for profit or commercial
+   advantage and that copies bear this notice and the full citation on
+   the first page. Copyrights for components of this work owned by
+   others than ACM must be honored. Abstracting with credit is
+   permitted. To copy otherwise, or republish, to post on servers or to
+   redistribute to lists, requires prior specific permission
+   and\hspace*{.5pt}/or  a fee. Request permissions from
+   permissions@acm.org.
   \or % acmlicensed
-
+   Permission to make digital or hard copies of all or part of this
+   work for personal or classroom use is granted without fee provided
+   that copies are not made or distributed for profit or commercial
+   advantage and that copies bear this notice and the full citation on
+   the first page. Copyrights for components of this work owned by
+   others than the author(s) must be honored. Abstracting with credit
+   is permitted.  To copy otherwise, or republish, to post on servers
+   or to  redistribute to lists, requires prior specific permission
+   and\hspace*{.5pt}/or  a fee. Request permissions from
+   permissions@acm.org.
   \or % rightsretained
-
+   Permission to make digital or hard copies of part or all of this work
+   for personal or classroom use is granted without fee provided that
+   copies are not made or distributed for profit or commercial advantage
+   and that copies bear this notice and the full citation on the first
+   page. Copyrights for third-party components of this work must be
+   honored. For all other uses, contact the
+   owner\hspace*{.5pt}/author(s).
   \or % usgov
    This paper is authored by an employee(s) of the United States
    Government and is in the public domain. Non-exclusive copying or
@@ -4697,9 +4823,31 @@ Computing Machinery]
    publish or reproduce this article, or to allow others to do so, for
    government purposes only.
   \or % cagov
-
+   This article was authored by employees of the Government of Canada.
+   As such, the Canadian government retains all interest in the
+   copyright to this work and grants to ACM a nonexclusive,
+   royalty-free right to publish or reproduce this article, or to allow
+   others to do so, provided that clear attribution is given both to
+   the authors and the Canadian government agency employing them.
+   Permission to make digital or hard copies for personal or classroom
+   use is granted. Copies must bear this notice and the full citation
+   on the first page.  Copyrights for components of this work owned by
+   others than the Canadian Government must be honored. To copy
+   otherwise, distribute, republish, or post, requires prior specific
+   permission and\hspace*{.5pt}/or a fee. Request permissions from
+   permissions@acm.org.
   \or % cagovmixed
-
+   ACM acknowledges that this contribution was co-authored by an
+   affiliate of the national government of Canada. As such, the Crown
+   in Right of Canada retains an equal interest in the copyright.
+   Reprints must include clear attribution to ACM and the author's
+   government agency affiliation.  Permission to make digital or hard
+   copies for personal or classroom use is granted.  Copies must bear
+   this notice and the full citation on the first page. Copyrights for
+   components of this work owned by others than ACM must be honored.
+   To copy otherwise, distribute, republish, or post, requires prior
+   specific permission and\hspace*{.5pt}/or a fee. Request permissions
+   from permissions@acm.org.
   \or % licensedusgovmixed
    Publication rights licensed to ACM\@. ACM acknowledges that this
    contribution was authored or co-authored by an employee, contractor
@@ -4708,7 +4856,19 @@ Computing Machinery]
    reproduce this article, or to allow others to do so, for Government
    purposes only.
   \or % licensedcagov
-
+   This article was authored by employees of the Government of Canada.
+   As such, the Canadian government retains all interest in the
+   copyright to this work and grants to ACM a nonexclusive,
+   royalty-free right to publish or reproduce this article, or to allow
+   others to do so, provided that clear attribution is given both to
+   the authors and the Canadian government agency employing them.
+   Permission to make digital or hard copies for personal or classroom
+   use is granted. Copies must bear this notice and the full citation
+   on the first page.  Copyrights for components of this work owned by
+   others than the Canadian Government must be honored. To copy
+   otherwise, distribute, republish, or post, requires prior specific
+   permission and\hspace*{.5pt}/or a fee. Request permissions from
+   permissions@acm.org.
   \or % licensedcagovmixed
    Publication rights licensed to ACM\@. ACM acknowledges that this
    contribution was authored or co-authored by an employee, contractor
@@ -4838,6 +4998,8 @@ Computing Machinery]
 % \changes{v1.55}{2018/10/14}{Fixes topnum}
 % \changes{v1.58}{2019/01/23}{Original \cs{vspace} inside
 % \cs{maketitle}}
+% \changes{v1.64}{2019/08/17}{Added a switch setting to show that
+% \cs{maketitle} is typeset}
 %   The (in)famous \cs{maketitle}.  Note that in |sigchi-a| mode, authors
 %   are \emph{not} in the title box.
 %
@@ -4847,6 +5009,7 @@ Computing Machinery]
 %  way, this was the default behavior of the old ACM classes.
 %    \begin{macrocode}
 \def\maketitle{%
+  \@ACM@maketitle@typesettrue
   \if@ACM@anonymous
     % Anonymize omission of \author-s
     \ifnum\num@authorgroups=0\author{}\fi
@@ -5511,10 +5674,12 @@ Computing Machinery]
 %
 % \begin{macro}{\@typeset@author@bx}
 % \changes{v1.15}{2016/07/04}{Moved to separate macro}
+% \changes{v1.61}{2019/05/26}{Added \cs{normalbaselines}}
 %   Typesetting the box with authors.  Note that in |sigchi-a| the box
 %   is not centered.
 %    \begin{macrocode}
-\def\@typeset@author@bx{\bgroup\hsize=\author@bx@wd\def\and{\par}%
+\def\@typeset@author@bx{\bgroup\hsize=\author@bx@wd
+  \def\and{\par}\normalbaselines
   \global\setbox\author@bx=\vtop{\if@ACM@sigchiamode\else\centering\fi
     \@authorfont\@currentauthors\par\@affiliationfont
     \@currentaffiliation}\egroup
@@ -5669,6 +5834,7 @@ Computing Machinery]
 %
 % \begin{macro}{\@mkauthorsaddresses}
 % \changes{v1.46}{2017/08/27}{Introduced macro}
+% \changes{v1.65}{2019/10/13}{Deleted cs{@addpunct}}
 % Typesetting authors' addresses in the footnote style
 %    \begin{macrocode}
 \def\@mkauthorsaddresses{%
@@ -5677,17 +5843,17 @@ Computing Machinery]
   \ifnum\num@authorgroups>1\relax
   addresses: \else address: \fi
   \bgroup
-  \def\streetaddress##1{\unskip\@addpunct, ##1}%
-  \def\postcode##1{\unskip\@addpunct, ##1}%
+  \def\streetaddress##1{\unskip, ##1}%
+  \def\postcode##1{\unskip, ##1}%
   \def\position##1{\unskip\ignorespaces}%
-  \def\institution##1{\unskip\@addpunct, ##1}%
-  \def\city##1{\unskip\@addpunct, ##1}%
-  \def\state##1{\unskip\@addpunct, ##1}%
+  \def\institution##1{\unskip, ##1}%
+  \def\city##1{\unskip, ##1}%
+  \def\state##1{\unskip, ##1}%
   \renewcommand\department[2][0]{\unskip\@addpunct, ##2}%
-  \def\country##1{\unskip\@addpunct, ##1}%
-  \def\and{\unskip\@addpunct; }%
+  \def\country##1{\unskip, ##1}%
+  \def\and{\unskip; }%
   \def\@author##1{##1}%
-  \def\email##1##2{\unskip\@addpunct, \nolinkurl{##2}}%
+  \def\email##1##2{\unskip, \nolinkurl{##2}}%
   \addresses
   \egroup}
 %    \end{macrocode}
@@ -5883,6 +6049,8 @@ Computing Machinery]
 % cmyk colors in boxes do not work}
 % \changes{v1.46}{2017/08/28}{Rearranged the code to get rid of
 % spurious underfull messages (Benjamin Byholm)}
+% \changes{v1.64}{2019/08/24}{Bug fix: made the spacing on the left
+% and the right size equal}
 %   This is the box displayed in review mode
 %    \begin{macrocode}
 \if@ACM@review
@@ -5891,7 +6059,8 @@ Computing Machinery]
   \newcount\ACM@linecount
   \ACM@linecount\@ne\relax
   \def\ACM@mk@linecount{%
-    \savebox{\ACM@linecount@bx}[4em][t]{\parbox[t]{4em}{%
+    \savebox{\ACM@linecount@bx}[4em][t]{\parbox[t]{4em}{\normalfont
+        \normalsize
         \setlength{\ACM@linecount@bxht}{0pt}%
         \loop{\color{red}\scriptsize\the\ACM@linecount}\\
         \global\advance\ACM@linecount by \@ne
@@ -5981,9 +6150,10 @@ Computing Machinery]
 % \begin{macro}{\@headfootfont}
 % \changes{v1.16}{2016/07/07}{Added macro}
 % \changes{v1.48}{2017/09/16}{Deleted unnecessary switch (Michael D.~Adams)}
+% \changes{v1.60}{2019/04/22}{Moved to footnotesize}
 %   The font to typeset header and footer text.
 %    \begin{macrocode}
-\def\@headfootfont{\sffamily}
+\def\@headfootfont{\sffamily\footnotesize}
 %    \end{macrocode}
 %
 % \end{macro}
@@ -6064,9 +6234,11 @@ Computing Machinery]
       \fancyhead[LO]{\ACM@linecountL\@headfootfont\shorttitle}%
       \fancyhead[RE]{\@headfootfont\@shortauthors\ACM@linecountR}%
       \if@ACM@nonacm\else%
-        \fancyhead[LE]{\ACM@linecountL\@headfootfont\acmConference@shortname,
+        \fancyhead[LE]{\ACM@linecountL\@headfootfont\footnotesize
+          \acmConference@shortname,
           \acmConference@date, \acmConference@venue}%
-        \fancyhead[RO]{\@headfootfont\acmConference@shortname,
+        \fancyhead[RO]{\@headfootfont
+          \acmConference@shortname,
           \acmConference@date, \acmConference@venue\ACM@linecountR}%
       \fi
     \fi
@@ -6075,9 +6247,11 @@ Computing Machinery]
     \fancyhead[LO]{\ACM@linecountL\@headfootfont\shorttitle}%
     \fancyhead[RE]{\@headfootfont\@shortauthors\ACM@linecountR}%
     \if@ACM@nonacm\else%
-      \fancyhead[LE]{\ACM@linecountL\@headfootfont\acmConference@shortname,
+      \fancyhead[LE]{\ACM@linecountL\@headfootfont
+        \acmConference@shortname,
         \acmConference@date, \acmConference@venue}%
-      \fancyhead[RO]{\@headfootfont\acmConference@shortname,
+      \fancyhead[RO]{\@headfootfont
+        \acmConference@shortname,
         \acmConference@date, \acmConference@venue\ACM@linecountR}%
     \fi
   \fi  
